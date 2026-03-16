@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajida Khan Dev Lab's · AI-Powered Tech Tutoring</title>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light mode */
+        body.light-mode {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a2e;
+        }
+
+        body.light-mode .glass,
+        body.light-mode .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1a1a2e;
+        }
+
+        body.light-mode .text-gray-300,
+        body.light-mode .text-gray-400 {
+            color: #4a4a6a !important;
+        }
+
+        body.light-mode .bg-white\/5 {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Dark mode */
+        body.dark-mode {
+            background: #0a0a0f;
+            color: #ffffff;
+        }
+
+        body.dark-mode .glass,
+        body.dark-mode .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Particle effect */
+        .particle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 20s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* 3D Cube */
+        .cube-container {
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 0 auto;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(124,92,252,0.9), rgba(0,229,255,0.9));
+            box-shadow: 0 0 30px rgba(124,92,252,0.3);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+        }
+
+        .cube-face i {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            display: block;
+            text-align: center;
+        }
+
+        .cube-face span {
+            display: block;
+            font-size: 0.8rem;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 20px;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .front  { transform: translateZ(100px); }
+        .back   { transform: rotateY(180deg) translateZ(100px); }
+        .right  { transform: rotateY(90deg) translateZ(100px); }
+        .left   { transform: rotateY(-90deg) translateZ(100px); }
+        .top    { transform: rotateX(90deg) translateZ(100px); }
+        .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+        @keyframes rotate {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Terminal buttons */
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .terminal-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        /* Code editor */
+        .code-editor {
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.6;
+            tab-size: 4;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Chat widget */
+        .chat-panel {
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .chat-panel.open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-overlay.open .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Selected option highlight */
+        .quiz-option.selected {
+            background: rgba(124, 92, 252, 0.2) !important;
+            border-color: #8b5cf6 !important;
+            color: white !important;
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border-top: 3px solid #8b5cf6;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cube-container {
+                width: 150px;
+                height: 150px;
+            }
+            .cube-face {
+                width: 150px;
+                height: 150px;
+            }
+            .front  { transform: translateZ(75px); }
+            .back   { transform: rotateY(180deg) translateZ(75px); }
+            .right  { transform: rotateY(90deg) translateZ(75px); }
+            .left   { transform: rotateY(-90deg) translateZ(75px); }
+            .top    { transform: rotateX(90deg) translateZ(75px); }
+            .bottom { transform: rotateX(-90deg) translateZ(75px); }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon text-white" id="themeIcon"></i>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        SK
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                        Sajida Khan Dev Lab's
+                    </span>
+                    <span class="hidden md:inline text-sm text-gray-400">// AI tutor</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-white transition">Courses</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">AI path</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Dev Lab</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Community</a>
+                    <button class="px-4 py-2 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 hover:bg-purple-500/10 transition">
+                        <i class="fas fa-globe mr-2"></i>🌐 EN
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="md:hidden text-gray-300 hover:text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-16 left-0 right-0 bg-black/80 backdrop-blur-lg border-b border-white/10 z-40 p-6 md:hidden" id="mobileMenu">
+        <div class="flex flex-col space-y-4">
+            <a href="#" class="text-gray-300 hover:text-white transition py-2">Courses</a>
+            <a href="#" class="text-gray-300 hover:text-white transition py-2">AI path</a>
+            <a href="#" class="text-gray-300 hover:text-white transition py-2">Dev Lab</a>
+            <a href="#" class="text-gray-300 hover:text-white transition py-2">Community</a>
+            <button class="px-4 py-2 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 hover:bg-purple-500/10 transition w-full">
+                <i class="fas fa-globe mr-2"></i>🌐 EN
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- API Key Input -->
+            <div class="mb-8 glass p-4 rounded-xl">
+                <div class="flex flex-col md:flex-row items-center gap-4">
+                    <div class="flex-1 w-full">
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Google AI Studio API Key</label>
+                        <input type="password" id="apiKey" placeholder="Enter your API key" class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500">
+                    </div>
+                    <button onclick="saveApiKey()" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition whitespace-nowrap">
+                        <i class="fas fa-key mr-2"></i>Save Key
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span class="text-sm font-semibold text-purple-400"><i class="fas fa-robot mr-2"></i>AI-POWERED LEARNING 4.0</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                        <span class="bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
+                            tutor that knows your level,
+                        </span>
+                        <br>
+                        <span class="text-white">builds your path, tracks every XP</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300">
+                        Adaptive AI detects your skill, creates custom study plan & progress tracker. High-value tech: AI/ML, web, cyber, data science, robotics ...
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="window.location.href='assessment.html'" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:scale-105">
+                            <i class="fas fa-bolt mr-2"></i>find my level (free)
+                        </button>
+                        <button class="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all">
+                            <i class="fas fa-play mr-2"></i>see how it works
+                        </button>
+                    </div>
+                    
+                    <div class="flex gap-8">
+                        <div>
+                            <span class="text-3xl font-bold text-white">5,200+</span>
+                            <span class="block text-sm text-gray-400">learners</span>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-bold text-white">146k</span>
+                            <span class="block text-sm text-gray-400">XP today</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D Cube -->
+                <div class="relative">
+                    <div class="cube-container">
+                        <div class="cube">
+                            <div class="cube-face front"><div><i class="fas fa-robot"></i><span>AI/ML</span></div></div>
+                            <div class="cube-face back"><div><i class="fas fa-code"></i><span>Web Dev</span></div></div>
+                            <div class="cube-face right"><div><i class="fas fa-mobile-alt"></i><span>App Dev</span></div></div>
+                            <div class="cube-face left"><div><i class="fas fa-shield-alt"></i><span>Cyber</span></div></div>
+                            <div class="cube-face top"><div><i class="fas fa-chart-line"></i><span>Data Sci</span></div></div>
+                            <div class="cube-face bottom"><div><i class="fas fa-gamepad"></i><span>Game Dev</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dev Lab Section -->
+            <section class="mb-20">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 mb-4">
+                        <i class="fas fa-flask mr-2"></i>SAJIDA KHAN'S DEV LAB
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">where code comes alive ✨</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Write, run, and debug code with AI assistance. Generate random code samples in any language!</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Code Editor -->
+                    <div class="glass rounded-2xl overflow-hidden">
+                        <div class="bg-white/5 px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <!-- Apple-style terminal buttons -->
+                                <div class="flex gap-1.5">
+                                    <div class="terminal-dot red"></div>
+                                    <div class="terminal-dot yellow"></div>
+                                    <div class="terminal-dot green"></div>
+                                </div>
+                                <span class="text-sm text-gray-400 ml-2">main.py</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <select id="languageSelect" class="bg-white/5 border border-white/10 rounded-lg px-3 py-1 text-sm text-gray-300">
+                                    <option value="python">Python</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="java">Java</option>
+                                    <option value="cpp">C++</option>
+                                    <option value="rust">Rust</option>
+                                    <option value="go">Go</option>
+                                </select>
+                                <button onclick="generateRandomCode()" class="px-3 py-1 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-700 transition" title="Generate random code">
+                                    <i class="fas fa-dice"></i>
+                                </button>
+                                <button onclick="runCode()" class="px-4 py-1 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700 transition">
+                                    <i class="fas fa-play mr-1"></i>Run
+                                </button>
+                            </div>
+                        </div>
+                        <div class="code-editor">
+                            <textarea id="codeEditor" rows="12" class="w-full bg-transparent text-gray-300 font-mono text-sm p-4 border-none focus:outline-none resize-none" placeholder="# Write your code here...">def fibonacci(n):
+    """Calculate fibonacci sequence"""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Test the function
+for i in range(10):
+    print(f"fib({i}) = {fibonacci(i)}")</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Output & AI Assistant -->
+                    <div class="space-y-6">
+                        <!-- Output Terminal -->
+                        <div class="glass rounded-2xl overflow-hidden">
+                            <div class="bg-white/5 px-4 py-3 border-b border-white/10 flex items-center gap-2">
+                                <i class="fas fa-terminal text-gray-400"></i>
+                                <span class="text-sm text-gray-300">Output</span>
+                            </div>
+                            <div id="output" class="font-mono text-sm p-4 text-gray-300 min-h-[150px] max-h-[200px] overflow-y-auto">
+                                <span class="text-gray-500">Ready to run your code...</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Assistant -->
+                        <div class="glass rounded-2xl overflow-hidden">
+                            <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-robot text-purple-400"></i>
+                                    <span class="text-sm font-semibold text-white">AI Coding Assistant</span>
+                                </div>
+                                <span class="text-xs text-gray-400">powered by Gemini 2.0</span>
+                            </div>
+                            <div class="p-4">
+                                <div id="aiMessages" class="space-y-4 max-h-[250px] overflow-y-auto mb-4">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-robot text-sm"></i>
+                                        </div>
+                                        <div class="flex-1 bg-white/5 rounded-lg p-3">
+                                            <p class="text-sm text-gray-300">Hi! I'm your AI coding assistant. I can help you debug, explain concepts, or optimize your code.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <input type="text" id="aiInput" placeholder="Ask about your code..." class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-purple-500">
+                                    <button onclick="askAI()" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-lg transition">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                                <div id="aiTyping" class="typing-indicator hidden">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Suggestions -->
+                <div class="mt-8 glass rounded-2xl p-6">
+                    <h3 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-lightbulb text-yellow-500"></i>
+                        AI-Powered Suggestions
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <button onclick="analyzeCode('optimize')" class="text-left p-4 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <i class="fas fa-rocket text-purple-400 mb-2"></i>
+                            <h4 class="text-white font-medium mb-1">Optimize Code</h4>
+                            <p class="text-xs text-gray-400">Make your code faster and cleaner</p>
+                        </button>
+                        <button onclick="analyzeCode('explain')" class="text-left p-4 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <i class="fas fa-book-open text-blue-400 mb-2"></i>
+                            <h4 class="text-white font-medium mb-1">Explain Code</h4>
+                            <p class="text-xs text-gray-400">Understand what your code does</p>
+                        </button>
+                        <button onclick="analyzeCode('debug')" class="text-left p-4 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <i class="fas fa-bug text-green-400 mb-2"></i>
+                            <h4 class="text-white font-medium mb-1">Find Bugs</h4>
+                            <p class="text-xs text-gray-400">Detect and fix potential issues</p>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gamification Strip -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-crown text-yellow-500"></i> global leaderboard
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-300">1. Alex M. (data science)</span>
+                            <span class="text-yellow-500 font-semibold">🔥 12,480 XP</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-300">2. Sofia K. (AI/ML)</span>
+                            <span class="text-blue-400 font-semibold">⚡ 11,920 XP</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-300">3. James W. (cyber)</span>
+                            <span class="text-gray-400 font-semibold">💻 11,005 XP</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-300">4. Maria G. (web dev)</span>
+                            <span class="text-purple-400 font-semibold">✨ 10,220 XP</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 bg-purple-500/10 px-2 rounded-lg">
+                            <span class="text-purple-400">you (Sajida's lab)</span>
+                            <span class="text-white font-semibold"><strong>8,450 XP</strong> <span class="text-green-400 text-sm">↑164</span></span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-400"><i class="fas fa-calendar-alt mr-2"></i> daily streak: 14 days 🔥</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-tasks text-purple-400"></i> daily challenges
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="bg-white/5 rounded-xl p-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">☕ 09:00 code warm-up</span>
+                                <span class="text-yellow-500 font-semibold">+25 XP</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">🐍 Python puzzle</span>
+                                <span class="text-yellow-500 font-semibold">+40 XP</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-300">🧮 math for ML</span>
+                                <span class="text-yellow-500 font-semibold">+60 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-gray-400"><i class="fas fa-medal mr-2 text-purple-400"></i> complete all = bonus 100 XP</p>
+                </div>
+            </div>
+
+            <!-- Skill Badges (White text for dark mode) -->
+            <div class="flex flex-wrap gap-3 mb-12">
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-shield-alt text-yellow-500 mr-2"></i> cyber guardian (L5)</span>
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-robot text-blue-400 mr-2"></i> robotics rookie (L2)</span>
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-chart-line text-green-400 mr-2"></i> data master (L6)</span>
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-code text-purple-400 mr-2"></i> web dev wizard (L4)</span>
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-brain text-pink-400 mr-2"></i> AI apprentice (L3)</span>
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-lock text-orange-400 mr-2"></i> crypto hunter</span>
+                <span class="px-4 py-2 glass-card rounded-full text-sm text-white"><i class="fas fa-gamepad text-red-400 mr-2"></i> game architect (L2)</span>
+            </div>
+
+            <!-- AI Features -->
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">⚡ AI learning ecosystem · just for you</h2>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-road text-4xl text-purple-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">AI study path</h3>
+                    <p class="text-gray-400 mb-3">Detected: intermediate Python. Next: deep learning specialization.</p>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">updated 2h ago</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-chart-simple text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">progress tracker</h3>
+                    <p class="text-gray-400 mb-3">ML 63% · web dev 88% · cyber 42%</p>
+                    <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div class="h-full w-[63%] bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-gem text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">XP & streaks</h3>
+                    <p class="text-gray-400">total XP: 8,450 · streak 14d · +340 today</p>
+                    <div class="mt-3 flex items-center gap-2">
+                        <i class="fas fa-fire text-orange-500"></i>
+                        <span class="text-sm text-gray-400">top 7% this week</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutor Spotlight -->
+            <div class="glass-card p-8 rounded-3xl mb-12">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-32 h-32 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white text-4xl font-bold shadow-xl">
+                        SK
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-4 items-center mb-3">
+                            <h2 class="text-2xl font-bold text-white">Sajida Khan (founder & head tutor)</h2>
+                            <span class="px-3 py-1 bg-red-500/20 text-red-400 text-sm rounded-full flex items-center gap-1">
+                                <i class="fas fa-video"></i> LIVE NOW · AI office hours
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <i class="fas fa-star-half-alt text-yellow-500"></i>
+                            <span class="text-gray-400 ml-2">4.9 (1.2k+ reviews)</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">ex-DeepMind, 10y experience in ML/robotics. personalised mentoring for every student.</p>
+                        <div class="flex flex-wrap gap-6">
+                            <span class="text-gray-400"><i class="fas fa-video mr-2 text-purple-400"></i> 12 live classes this week</span>
+                            <span class="text-gray-400"><i class="fas fa-comment mr-2 text-blue-400"></i> instant AI translation (40+ languages)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-white/5 rounded-2xl p-4">
+                    <p class="text-gray-300 mb-2"><i class="fas fa-language text-purple-400 mr-2"></i> <strong>AI real-time translation active</strong> — 37 learners from 12 countries are joining in their native language</p>
+                    <div class="flex flex-wrap gap-3 text-2xl">
+                        <span>🇪🇸</span> <span>🇫🇷</span> <span>🇯🇵</span> <span>🇦🇪</span> <span>🇩🇪</span> <span>🇧🇷</span> <span>🇰🇷</span> <span>🇮🇳</span> <span>🇺🇸</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-6 mt-6">
+                    <div class="text-gray-400"><i class="fas fa-quote-left text-purple-400 mr-2"></i> "the AI detected exactly my weakness in calculus, built a plan — I love it" – Riya, data science</div>
+                    <div class="text-gray-400"><i class="fas fa-quote-left text-purple-400 mr-2"></i> "live class with translation is magic" – Chen, robotics</div>
+                </div>
+            </div>
+
+            <!-- Skills Grid -->
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">🛠️ high-value tech skills · specialisations</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-microchip text-3xl text-purple-400 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">AI & ML</h3>
+                    <p class="text-sm text-gray-400 mb-3">transformers, LLMs, math</p>
+                    <span class="inline-block px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">trending</span>
+                </div>
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-code text-3xl text-blue-400 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">web dev</h3>
+                    <p class="text-sm text-gray-400 mb-3">full-stack, next, AI apps</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-mobile-alt text-3xl text-green-400 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">app dev</h3>
+                    <p class="text-sm text-gray-400 mb-3">flutter, kotlin, swiftUI</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl hover:scale-105 transition-all">
+                    <i class="fas fa-shield-alt text-3xl text-red-400 mb-3"></i>
+                    <h3 class="text-lg font-bold text-white mb-2">cyber security</h3>
+                    <p class="text-sm text-gray-400 mb-3">ethical hacking, SOC, cloud</p>
+                </div>
+            </div>
+
+            <!-- AI Translation Demo -->
+            <div class="glass-card p-8 rounded-3xl mb-12">
+                <div class="flex flex-col lg:flex-row gap-8 items-center">
+                    <div class="lg:w-1/3">
+                        <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-sm rounded-full mb-4">
+                            <i class="fas fa-headset mr-2"></i>next live class
+                        </span>
+                        <h3 class="text-2xl font-bold text-white mb-2">AI agents in production</h3>
+                        <p class="text-gray-400"><i class="fas fa-clock mr-2"></i> starts in 2h · Sajida Khan</p>
+                    </div>
+                    <div class="lg:w-2/3 bg-white/5 rounded-2xl p-6">
+                        <p class="text-gray-300 mb-3"><i class="fas fa-ear-deaf text-purple-400 mr-2"></i> <strong>AI translation ON</strong> – auto subtitles & voice in your language. <br>supported: 50+ languages, real-time.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">🇯🇵 日本語</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">🇫🇷 français</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">🇨🇳 中文</span>
+                            <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">🇩🇪 Deutsch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center glass-card p-12 rounded-3xl mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">start your AI-powered quest today</h2>
+                <p class="text-xl text-gray-300 mb-6">get instant level detection + custom study plan + 500 welcome XP</p>
+                <button onclick="window.location.href='assessment.html'" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all hover:scale-105 text-lg">
+                    <i class="fas fa-arrow-right mr-2"></i> discover your level (free)
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black/30 backdrop-blur-lg border-t border-white/10 mt-12">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-3">Sajida Khan Dev Lab's</h4>
+                    <p class="text-sm text-gray-400">AI tutor · global tech skills</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-3">skills</h4>
+                    <p class="text-sm text-gray-400">AI/ML · web · app · cyber · data · game · robotics</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-3">company</h4>
+                    <p class="text-sm text-gray-400">tutors · reviews · become mentor</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-3">🌐 AI translation</h4>
+                    <p class="text-sm text-gray-400">learn in your language</p>
+                </div>
+            </div>
+            <hr class="border-white/10 mb-8">
+            <p class="text-center text-sm text-gray-400">© 2025 Sajida Khan Dev Lab's – AI-powered tech tutoring. All rights reserved. XP, streaks, badges, quests make learning stick.</p>
+        </div>
+    </footer>
+
+    <!-- AI Chat Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <div class="chat-panel absolute bottom-20 right-0 w-80 glass rounded-2xl overflow-hidden" id="chatPanel">
+            <div class="p-4 bg-gradient-to-r from-purple-600 to-blue-600">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-robot text-2xl text-white"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Gemini AI Tutor</h4>
+                        <p class="text-xs text-white/70">● Online · Gemini 2.0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 h-80 overflow-y-auto" id="chatMessages">
+                <div class="bg-white/5 rounded-lg p-3 mb-3">
+                    <p class="text-sm text-gray-300">Hi! I'm your AI tutor powered by Google's latest Gemini model. Ask me anything about coding, tech careers, or get help with your projects! ✨</p>
+                </div>
+            </div>
+            <div class="p-4 border-t border-white/10">
+                <div class="flex gap-2">
+                    <input type="text" id="chatInput" placeholder="Ask me anything..." class="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-purple-500">
+                    <button onclick="sendChatMessage()" class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center text-white hover:bg-purple-700 transition">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-14 h-14 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-all animate-pulse">
+            🤖
+        </button>
+    </div>
+
+    <script>
+        // API Key management
+        let apiKey = localStorage.getItem('gemini_api_key') || '';
+
+        function saveApiKey() {
+            const key = document.getElementById('apiKey').value;
+            if (key) {
+                apiKey = key;
+                localStorage.setItem('gemini_api_key', key);
+                showNotification('API Key saved successfully!', 'success');
+            } else {
+                showNotification('Please enter an API key', 'error');
+            }
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('themeIcon');
+            
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Particle background
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = 10 + Math.random() * 20 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/50');
+            } else {
+                nav.classList.remove('bg-black/50');
+            }
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // Chat widget
+        function toggleChat() {
+            document.getElementById('chatPanel').classList.toggle('open');
+        }
+
+        // Generate random code
+        function generateRandomCode() {
+            const language = document.getElementById('languageSelect').value;
+            const editor = document.getElementById('codeEditor');
+            
+            const codeSamples = {
+                python: `# Random Python Code Generator
+import random
+import math
+
+class DataAnalyzer:
+    def __init__(self, data):
+        self.data = data
+    
+    def calculate_statistics(self):
+        """Calculate basic statistics"""
+        mean = sum(self.data) / len(self.data)
+        variance = sum((x - mean) ** 2 for x in self.data) / len(self.data)
+        std_dev = math.sqrt(variance)
+        
+        return {
+            'mean': mean,
+            'median': sorted(self.data)[len(self.data)//2],
+            'std_dev': std_dev,
+            'min': min(self.data),
+            'max': max(self.data)
+        }
+    
+    def normalize_data(self):
+        """Normalize data to [0,1] range"""
+        min_val = min(self.data)
+        max_val = max(self.data)
+        return [(x - min_val) / (max_val - min_val) for x in self.data]
+
+# Generate sample data
+sample_data = [random.randint(1, 100) for _ in range(20)]
+analyzer = DataAnalyzer(sample_data)
+
+# Analyze data
+stats = analyzer.calculate_statistics()
+normalized = analyzer.normalize_data()
+
+print("Original Data:", sample_data)
+print("\\nStatistics:", stats)
+print("\\nNormalized Data:", normalized[:5], "...")`,
+
+                javascript: `// Random JavaScript Code Generator
+class TaskManager {
+    constructor() {
+        this.tasks = [];
+        this.completed = new Set();
+    }
+
+    addTask(title, priority = 'medium') {
+        const task = {
+            id: Date.now() + Math.random(),
+            title,
+            priority,
+            createdAt: new Date(),
+            completed: false
+        };
+        this.tasks.push(task);
+        return task;
+    }
+
+    completeTask(taskId) {
+        const task = this.tasks.find(t => t.id === taskId);
+        if (task) {
+            task.completed = true;
+            this.completed.add(taskId);
+            return true;
+        }
+        return false;
+    }
+
+    getPendingTasks() {
+        return this.tasks.filter(t => !t.completed);
+    }
+
+    getStats() {
+        return {
+            total: this.tasks.length,
+            completed: this.completed.size,
+            pending: this.tasks.length - this.completed.size,
+            completionRate: (this.completed.size / this.tasks.length * 100).toFixed(2) + '%'
+        };
+    }
+}
+
+// Usage example
+const manager = new TaskManager();
+
+// Add some tasks
+manager.addTask('Learn JavaScript', 'high');
+manager.addTask('Build a project', 'high');
+manager.addTask('Review code', 'medium');
+manager.addTask('Write documentation', 'low');
+
+// Complete some tasks
+manager.completeTask(manager.tasks[0].id);
+manager.completeTask(manager.tasks[2].id);
+
+// Display results
+console.log('Task Manager Stats:', manager.getStats());
+console.log('\\nPending Tasks:', manager.getPendingTasks());`,
+
+                java: `// Random Java Code Generator
+import java.util.*;
+import java.util.stream.*;
+
+public class DataProcessor {
+    private List<Integer> numbers;
+    
+    public DataProcessor() {
+        this.numbers = new ArrayList<>();
+    }
+    
+    public void generateRandomNumbers(int count) {
+        Random rand = new Random();
+        for (int i = 0; i < count; i++) {
+            numbers.add(rand.nextInt(1000));
+        }
+    }
+    
+    public Map<String, Double> analyzeData() {
+        Map<String, Double> stats = new HashMap<>();
+        
+        double sum = numbers.stream()
+            .mapToDouble(Integer::doubleValue)
+            .sum();
+        
+        double average = sum / numbers.size();
+        
+        double variance = numbers.stream()
+            .mapToDouble(n -> Math.pow(n - average, 2))
+            .average()
+            .orElse(0);
+        
+        double stdDev = Math.sqrt(variance);
+        
+        stats.put("sum", sum);
+        stats.put("average", average);
+        stats.put("stdDev", stdDev);
+        
+        return stats;
+    }
+    
+    public List<Integer> filterNumbers(int threshold) {
+        return numbers.stream()
+            .filter(n -> n > threshold)
+            .collect(Collectors.toList());
+    }
+    
+    public static void main(String[] args) {
+        DataProcessor processor = new DataProcessor();
+        processor.generateRandomNumbers(20);
+        
+        System.out.println("Generated numbers: " + processor.numbers);
+        System.out.println("\\nStatistics: " + processor.analyzeData());
+        System.out.println("\\nNumbers > 500: " + processor.filterNumbers(500));
+    }
+}`,
+
+                cpp: `// Random C++ Code Generator
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+#include <random>
+
+class MatrixOperations {
+private:
+    std::vector<std::vector<int>> matrix;
+    int rows, cols;
+
+public:
+    MatrixOperations(int r, int c) : rows(r), cols(c) {
+        matrix.resize(rows, std::vector<int>(cols));
+    }
+    
+    void fillRandom() {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(1, 100);
+        
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                matrix[i][j] = dis(gen);
+            }
+        }
+    }
+    
+    std::vector<int> getRowSums() {
+        std::vector<int> sums;
+        for(const auto& row : matrix) {
+            sums.push_back(std::accumulate(row.begin(), row.end(), 0));
+        }
+        return sums;
+    }
+    
+    std::vector<int> getColSums() {
+        std::vector<int> sums(cols, 0);
+        for(int j = 0; j < cols; j++) {
+            for(int i = 0; i < rows; i++) {
+                sums[j] += matrix[i][j];
+            }
+        }
+        return sums;
+    }
+    
+    void printMatrix() {
+        for(const auto& row : matrix) {
+            for(int val : row) {
+                std::cout << val << "\t";
+            }
+            std::cout << std::endl;
+        }
+    }
+};
+
+int main() {
+    MatrixOperations mat(4, 4);
+    mat.fillRandom();
+    
+    std::cout << "Generated Matrix:" << std::endl;
+    mat.printMatrix();
+    
+    std::cout << "\\nRow Sums: ";
+    for(int sum : mat.getRowSums()) {
+        std::cout << sum << " ";
+    }
+    
+    std::cout << "\\nColumn Sums: ";
+    for(int sum : mat.getColSums()) {
+        std::cout << sum << " ";
+    }
+    
+    std::cout << std::endl;
+    return 0;
+}`,
+
+                rust: `// Random Rust Code Generator
+use std::collections::HashMap;
+use rand::Rng;
+
+#[derive(Debug)]
+struct CryptoWallet {
+    address: String,
+    balances: HashMap<String, f64>,
+    transactions: Vec<Transaction>,
+}
+
+#[derive(Debug)]
+struct Transaction {
+    from: String,
+    to: String,
+    amount: f64,
+    currency: String,
+    timestamp: u64,
+}
+
+impl CryptoWallet {
+    fn new(address: String) -> Self {
+        CryptoWallet {
+            address,
+            balances: HashMap::new(),
+            transactions: Vec::new(),
+        }
+    }
+    
+    fn deposit(&mut self, currency: String, amount: f64) {
+        *self.balances.entry(currency.clone()).or_insert(0.0) += amount;
+        
+        self.transactions.push(Transaction {
+            from: "external".to_string(),
+            to: self.address.clone(),
+            amount,
+            currency,
+            timestamp: std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_secs(),
+        });
+    }
+    
+    fn send(&mut self, to: String, currency: String, amount: f64) -> Result<(), String> {
+        if let Some(balance) = self.balances.get_mut(&currency) {
+            if *balance >= amount {
+                *balance -= amount;
+                
+                self.transactions.push(Transaction {
+                    from: self.address.clone(),
+                    to,
+                    amount,
+                    currency,
+                    timestamp: std::time::SystemTime::now()
+                        .duration_since(std::time::UNIX_EPOCH)
+                        .unwrap()
+                        .as_secs(),
+                });
+                
+                Ok(())
+            } else {
+                Err("Insufficient balance".to_string())
+            }
+        } else {
+            Err("Currency not found".to_string())
+        }
+    }
+    
+    fn get_portfolio_value(&self, prices: &HashMap<String, f64>) -> f64 {
+        self.balances.iter()
+            .map(|(currency, amount)| amount * prices.get(currency).unwrap_or(&0.0))
+            .sum()
+    }
+}
+
+fn main() {
+    let mut wallet = CryptoWallet::new("0x742d35Cc6634C0532925a3b844Bc454e4438f44e".to_string());
+    
+    // Simulate some transactions
+    wallet.deposit("ETH".to_string(), 2.5);
+    wallet.deposit("BTC".to_string(), 0.15);
+    
+    let _ = wallet.send(
+        "0x1234567890123456789012345678901234567890".to_string(),
+        "ETH".to_string(),
+        1.0
+    );
+    
+    println!("Wallet: {:?}", wallet);
+    
+    // Calculate portfolio value
+    let mut prices = HashMap::new();
+    prices.insert("ETH".to_string(), 2000.0);
+    prices.insert("BTC".to_string(), 45000.0);
+    
+    println!("\\nPortfolio value: ${:.2}", wallet.get_portfolio_value(&prices));
+}`,
+
+                go: `// Random Go Code Generator
+package main
+
+import (
+    "fmt"
+    "sync"
+    "time"
+    "math/rand"
+)
+
+type Job struct {
+    ID       int
+    Duration time.Duration
+}
+
+type Worker struct {
+    ID      int
+    JobChan chan Job
+    Quit    chan bool
+}
+
+func NewWorker(id int) Worker {
+    return Worker{
+        ID:      id,
+        JobChan: make(chan Job),
+        Quit:    make(chan bool),
+    }
+}
+
+func (w Worker) Start(wg *sync.WaitGroup) {
+    go func() {
+        defer wg.Done()
+        for {
+            select {
+            case job := <-w.JobChan:
+                fmt.Printf("Worker %d started job %d (duration: %v)\n", 
+                    w.ID, job.ID, job.Duration)
+                time.Sleep(job.Duration)
+                fmt.Printf("Worker %d completed job %d\n", w.ID, job.ID)
+                
+            case <-w.Quit:
+                fmt.Printf("Worker %d shutting down\n", w.ID)
+                return
+            }
+        }
+    }()
+}
+
+type Pool struct {
+    Workers []Worker
+    JobQueue chan Job
+    wg      sync.WaitGroup
+}
+
+func NewPool(numWorkers int) *Pool {
+    pool := &Pool{
+        Workers:  make([]Worker, numWorkers),
+        JobQueue: make(chan Job),
+    }
+    
+    for i := 0; i < numWorkers; i++ {
+        pool.Workers[i] = NewWorker(i + 1)
+    }
+    
+    return pool
+}
+
+func (p *Pool) Start() {
+    p.wg.Add(len(p.Workers))
+    
+    for _, worker := range p.Workers {
+        worker.Start(&p.wg)
+    }
+    
+    // Distribute jobs
+    go func() {
+        for job := range p.JobQueue {
+            worker := p.Workers[job.ID%len(p.Workers)]
+            worker.JobChan <- job
+        }
+    }()
+}
+
+func (p *Pool) Stop() {
+    for _, worker := range p.Workers {
+        worker.Quit <- true
+    }
+    p.wg.Wait()
+    close(p.JobQueue)
+}
+
+func main() {
+    rand.Seed(time.Now().UnixNano())
+    
+    // Create worker pool
+    pool := NewPool(3)
+    pool.Start()
+    
+    // Submit jobs
+    go func() {
+        for i := 0; i < 10; i++ {
+            job := Job{
+                ID:       i + 1,
+                Duration: time.Duration(rand.Intn(1000)) * time.Millisecond,
+            }
+            pool.JobQueue <- job
+        }
+        close(pool.JobQueue)
+    }()
+    
+    // Wait a bit then stop
+    time.Sleep(3 * time.Second)
+    pool.Stop()
+    
+    fmt.Println("All jobs completed!")
+}`
+            };
+            
+            editor.value = codeSamples[language] || codeSamples.python;
+        }
+
+        // Run code simulation
+        function runCode() {
+            const code = document.getElementById('codeEditor').value;
+            const output = document.getElementById('output');
+            
+            output.innerHTML = '<div class="loading-spinner mx-auto"></div>';
+            
+            setTimeout(() => {
+                output.innerHTML = 'Code executed successfully!\n\nOutput:\n' + 
+                    '================================\n' +
+                    'Program output simulation:\n' +
+                    '> Initializing...\n' +
+                    '> Processing...\n' +
+                    '> Complete!\n\n' +
+                    'Generated output for your code. In production, this would execute in a sandboxed environment.';
+            }, 1000);
+        }
+
+        // AI Code Analysis
+        async function analyzeCode(type) {
+            const code = document.getElementById('codeEditor').value;
+            const aiMessages = document.getElementById('aiMessages');
+            
+            let prompt = '';
+            switch(type) {
+                case 'optimize':
+                    prompt = `Optimize this code and explain your improvements:\n\n${code}`;
+                    break;
+                case 'explain':
+                    prompt = `Explain this code line by line:\n\n${code}`;
+                    break;
+                case 'debug':
+                    prompt = `Find and fix bugs in this code:\n\n${code}`;
+                    break;
+            }
+            
+            // Add user request
+            const userDiv = document.createElement('div');
+            userDiv.className = 'flex items-start gap-3 justify-end mb-4';
+            userDiv.innerHTML = `
+                <div class="bg-purple-600/30 rounded-lg p-3">
+                    <p class="text-sm text-white">${type} my code</p>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-user text-sm"></i>
+                </div>
+            `;
+            aiMessages.appendChild(userDiv);
+            
+            // Show typing
+            document.getElementById('aiTyping').classList.remove('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('aiTyping').classList.add('hidden');
+                
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'flex items-start gap-3 mb-4';
+                aiDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-sm"></i>
+                    </div>
+                    <div class="flex-1 bg-white/5 rounded-lg p-3">
+                        <p class="text-sm text-gray-300">Analysis complete! Your code looks good. Here are some suggestions for improvement: [AI analysis would appear here in production]</p>
+                    </div>
+                `;
+                aiMessages.appendChild(aiDiv);
+            }, 1500);
+            
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+        }
+
+        // Chat message
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            const msg = input.value.trim();
+            
+            if (!msg) return;
+            
+            const userDiv = document.createElement('div');
+            userDiv.className = 'bg-purple-600/30 rounded-lg p-3 mb-3 text-right';
+            userDiv.innerHTML = `<p class="text-sm text-white">${msg}</p>`;
+            messages.appendChild(userDiv);
+            input.value = '';
+            
+            // Show typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.innerHTML = '<span></span><span></span><span></span>';
+            messages.appendChild(typingDiv);
+            messages.scrollTop = messages.scrollHeight;
+            
+            setTimeout(() => {
+                messages.removeChild(typingDiv);
+                
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'bg-white/5 rounded-lg p-3 mb-3';
+                aiDiv.innerHTML = `<p class="text-sm text-gray-300">Thanks for your message! With a valid API key, I'd give you a real AI response. For now, this is a simulation.</p>`;
+                messages.appendChild(aiDiv);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1500);
+        }
+
+        // Notification system
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-50 px-6 py-3 rounded-lg ${
+                type === 'success' ? 'bg-green-600' : 'bg-red-600'
+            } text-white shadow-lg animate-pulse`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
