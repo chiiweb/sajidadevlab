@@ -4,294 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sajida Khan Dev Lab's · AI Level Assessment</title>
-    
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Google Fonts -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%239333ea%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%233b82f6%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23g%29%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22bold%22%20font-size%3D%2228%22%20fill%3D%22white%22%20text-anchor%3D%22middle%22%3ESK%3C/text%3E%3C/svg%3E">
+    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%239333ea%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%233b82f6%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23g%29%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22bold%22%20font-size%3D%2228%22%20fill%3D%22white%22%20text-anchor%3D%22middle%22%3ESK%3C/text%3E%3C/svg%3E">
+    <meta name="theme-color" content="#9333ea">
+    <meta name="description" content="Sajida Khan Dev Lab — Free AI skill assessment powered by Gemma 3. Find your level and get a custom learning path!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <style id="tw-production">*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.static{position:static}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.bottom-20{bottom:5rem}.bottom-6{bottom:1.5rem}.left-0{left:0}.right-0{right:0}.right-4{right:1rem}.right-6{right:1.5rem}.top-0{top:0}.top-16{top:4rem}.top-20{top:5rem}.top-4{top:1rem}.z-0{z-index:0}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.z-\[100\]{z-index:100}.z-\[200\]{z-index:200}.z-\[300\]{z-index:300}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:.25rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:.5rem}.mb-20{margin-bottom:5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-2{margin-left:.5rem}.mr-1{margin-right:.25rem}.mr-2{margin-right:.5rem}.mt-0\.5{margin-top:.125rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.contents{display:contents}.hidden{display:none}.h-10{height:2.5rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:.5rem}.h-3{height:.75rem}.h-32{height:8rem}.h-72{height:18rem}.h-8{height:2rem}.h-full{height:100%}.max-h-\[200px\]{max-height:200px}.max-h-\[250px\]{max-height:250px}.max-h-\[90vh\]{max-height:90vh}.min-h-\[150px\]{min-height:150px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-14{width:3.5rem}.w-2{width:.5rem}.w-3{width:.75rem}.w-32{width:8rem}.w-8{width:2rem}.w-80{width:20rem}.w-\[63\%\]{width:63%}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-\[80\%\]{max-width:80%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.flex-shrink-0{flex-shrink:0}.grow{flex-grow:1}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.5rem*var(--tw-space-x-reverse));margin-left:calc(.5rem*(1 - var(--tw-space-x-reverse)))}.space-x-8>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2rem*var(--tw-space-x-reverse));margin-left:calc(2rem*(1 - var(--tw-space-x-reverse)))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-none{border-style:none}.border-blue-500\/20{border-color:rgba(59,130,246,.2)}.border-purple-500\/20{border-color:rgba(168,85,247,.2)}.border-purple-500\/30{border-color:rgba(168,85,247,.3)}.border-red-500\/20{border-color:rgba(239,68,68,.2)}.border-red-500\/30{border-color:rgba(239,68,68,.3)}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.border-white\/20{border-color:hsla(0,0%,100%,.2)}.bg-black\/30{background-color:rgba(0,0,0,.3)}.bg-black\/50{background-color:rgba(0,0,0,.5)}.bg-black\/80{background-color:rgba(0,0,0,.8)}.bg-black\/85{background-color:rgba(0,0,0,.85)}.bg-blue-500\/10{background-color:rgba(59,130,246,.1)}.bg-blue-500\/20{background-color:rgba(59,130,246,.2)}.bg-gray-600{--tw-bg-opacity:1;background-color:rgb(75 85 99/var(--tw-bg-opacity,1))}.bg-green-400{--tw-bg-opacity:1;background-color:rgb(74 222 128/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74/var(--tw-bg-opacity,1))}.bg-purple-500\/10{background-color:rgba(168,85,247,.1)}.bg-purple-500\/20{background-color:rgba(168,85,247,.2)}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234/var(--tw-bg-opacity,1))}.bg-purple-600\/30{background-color:rgba(147,51,234,.3)}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68/var(--tw-bg-opacity,1))}.bg-red-500\/20{background-color:rgba(239,68,68,.2)}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38/var(--tw-bg-opacity,1))}.bg-red-900\/20{background-color:rgba(127,29,29,.2)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/5{background-color:hsla(0,0%,100%,.05)}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8/var(--tw-bg-opacity,1))}.bg-yellow-600{--tw-bg-opacity:1;background-color:rgb(202 138 4/var(--tw-bg-opacity,1))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-blue-500{--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-to:rgba(59,130,246,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-green-600{--tw-gradient-from:#16a34a var(--tw-gradient-from-position);--tw-gradient-to:rgba(22,163,74,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-purple-400{--tw-gradient-from:#c084fc var(--tw-gradient-from-position);--tw-gradient-to:rgba(192,132,252,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-purple-600{--tw-gradient-from:#9333ea var(--tw-gradient-from-position);--tw-gradient-to:rgba(147,51,234,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-purple-600\/10{--tw-gradient-from:rgba(147,51,234,.1) var(--tw-gradient-from-position);--tw-gradient-to:rgba(147,51,234,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-purple-600\/20{--tw-gradient-from:rgba(147,51,234,.2) var(--tw-gradient-from-position);--tw-gradient-to:rgba(147,51,234,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-blue-400{--tw-gradient-to:rgba(96,165,250,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#60a5fa var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-blue-400{--tw-gradient-to:#60a5fa var(--tw-gradient-to-position)}.to-blue-600{--tw-gradient-to:#2563eb var(--tw-gradient-to-position)}.to-blue-600\/10{--tw-gradient-to:rgba(37,99,235,.1) var(--tw-gradient-to-position)}.to-blue-600\/20{--tw-gradient-to:rgba(37,99,235,.2) var(--tw-gradient-to-position)}.to-emerald-600{--tw-gradient-to:#059669 var(--tw-gradient-to-position)}.to-pink-400{--tw-gradient-to:#f472b6 var(--tw-gradient-to-position)}.to-purple-500{--tw-gradient-to:#a855f7 var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-12{padding:3rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-12{padding-bottom:3rem}.pt-24{padding-top:6rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-7xl{font-size:4.5rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.capitalize{text-transform:capitalize}.italic{font-style:italic}.leading-tight{line-height:1.25}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250/var(--tw-text-opacity,1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128/var(--tw-text-opacity,1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60/var(--tw-text-opacity,1))}.text-orange-500{--tw-text-opacity:1;color:rgb(249 115 22/var(--tw-text-opacity,1))}.text-pink-400{--tw-text-opacity:1;color:rgb(244 114 182/var(--tw-text-opacity,1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252/var(--tw-text-opacity,1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165/var(--tw-text-opacity,1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/70{color:hsla(0,0%,100%,.7)}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21/var(--tw-text-opacity,1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8/var(--tw-text-opacity,1))}.placeholder-gray-500::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(107 114 128/var(--tw-placeholder-opacity,1))}.placeholder-gray-500::placeholder{--tw-placeholder-opacity:1;color:rgb(107 114 128/var(--tw-placeholder-opacity,1))}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-lg{--tw-backdrop-blur:blur(16px)}.backdrop-blur-lg,.backdrop-blur-md{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.backdrop-blur-sm,.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.ease-in{transition-timing-function:cubic-bezier(.4,0,1,1)}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05}.hover\:scale-105:hover,.hover\:scale-110:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1}.hover\:border-purple-500\/50:hover{border-color:rgba(168,85,247,.5)}.hover\:bg-green-700:hover{--tw-bg-opacity:1;background-color:rgb(21 128 61/var(--tw-bg-opacity,1))}.hover\:bg-purple-500\/10:hover{background-color:rgba(168,85,247,.1)}.hover\:bg-purple-700:hover{--tw-bg-opacity:1;background-color:rgb(126 34 206/var(--tw-bg-opacity,1))}.hover\:bg-white\/10:hover{background-color:hsla(0,0%,100%,.1)}.hover\:bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.hover\:bg-white\/5:hover{background-color:hsla(0,0%,100%,.05)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-purple-500\/30:hover{--tw-shadow-color:rgba(168,85,247,.3);--tw-shadow:var(--tw-shadow-colored)}.focus\:border-purple-500:focus{--tw-border-opacity:1;border-color:rgb(168 85 247/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-40:disabled{opacity:.4}.group:hover .group-hover\:-translate-x-1{--tw-translate-x:-0.25rem}.group:hover .group-hover\:-translate-x-1,.group:hover .group-hover\:translate-x-1{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem}@media (min-width:640px){.sm\:inline{display:inline}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width:768px){.md\:inline{display:inline}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:flex-row{flex-direction:row}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}}@media (min-width:1024px){.lg\:w-1\/3{width:33.333333%}.lg\:w-2\/3{width:66.666667%}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:flex-row{flex-direction:row}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-7xl{font-size:4.5rem;line-height:1}}</style>
+    <!-- Tailwind CSS v3 built with CLI — production ready, no CDN -->
     <style>
-        /* Custom styles */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0f;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; min-height: 100vh; overflow-x: hidden; color: #fff; }
 
         /* Animated background */
-        .bg-gradient-animate {
-            background: linear-gradient(-45deg, #667eea, #764ba2, #ff6b6b, #4a00e0);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
+        .bg-gradient-animate { background: linear-gradient(-45deg, #667eea, #764ba2, #ff6b6b, #4a00e0); background-size: 400% 400%; animation: gradient 15s ease infinite; }
+        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Particle effect */
-        .particle {
-            position: fixed;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 20s infinite linear;
-            z-index: 0;
-        }
-
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
+        /* Particles */
+        .particle { position: fixed; width: 2px; height: 2px; background: rgba(255,255,255,0.2); border-radius: 50%; pointer-events: none; animation: particleFloat 20s infinite linear; z-index: 0; }
+        @keyframes particleFloat { 0% { transform: translateY(100vh) translateX(0); opacity: 1; } 100% { transform: translateY(-100vh) translateX(100px); opacity: 0; } }
 
         /* Glow orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(124,92,252,0.2), transparent 70%);
-            top: -100px;
-            left: -100px;
-            animation: orbFloat 20s ease-in-out infinite;
-        }
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(0,229,255,0.15), transparent 70%);
-            bottom: 10%;
-            right: -80px;
-            animation: orbFloat 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
+        .orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: 0; pointer-events: none; }
+        .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,92,252,0.2), transparent 70%); top: -100px; left: -100px; animation: orbFloat 20s ease-in-out infinite; }
+        .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,229,255,0.15), transparent 70%); bottom: 10%; right: -80px; animation: orbFloat 25s ease-in-out infinite reverse; }
+        @keyframes orbFloat { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-30px) scale(1.1); } 66% { transform: translate(-20px,20px) scale(0.9); } }
 
         /* Glassmorphism */
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37); }
+        .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s; }
+        .glass-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(139,92,246,0.3); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        /* Don't animate glass-cards inside modals */
+        #resultsModal .glass-card:hover { transform: none; }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s;
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(139, 92, 246, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Option button */
-        .option-btn {
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.03);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .option-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .option-btn:hover::before {
-            left: 100%;
-        }
-
-        .option-btn.selected {
-            background: rgba(139, 92, 246, 0.15);
-            border-color: #8b5cf6;
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
-            transform: scale(1.02);
-        }
-
-        .option-btn.selected::after {
-            content: '✓';
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #8b5cf6;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+        /* Option buttons */
+        .option-btn { transition: all 0.3s; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); position: relative; overflow: hidden; cursor: pointer; }
+        .option-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); transition: left 0.5s; }
+        .option-btn:hover { border-color: rgba(139,92,246,0.4); background: rgba(139,92,246,0.07); transform: translateX(4px); }
+        .option-btn:hover::before { left: 100%; }
+        .option-btn.selected { background: rgba(139,92,246,0.15); border-color: #8b5cf6; box-shadow: 0 0 30px rgba(139,92,246,0.3); transform: scale(1.02); }
+        .option-btn.selected::after { content: '✓'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #8b5cf6; font-size: 1.2rem; font-weight: bold; }
 
         /* Progress bar */
-        .progress-bar {
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 200%; }
-        }
-
-        /* Loading spinner */
-        .loading-spinner {
-            border: 3px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            border-top: 3px solid #8b5cf6;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        .progress-bar { transition: width 0.5s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; }
+        .progress-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { left: -100%; } 100% { left: 200%; } }
 
         /* Typing indicator */
-        .typing-indicator {
-            display: flex;
-            gap: 4px;
-            padding: 12px;
-        }
-
-        .typing-indicator span {
-            width: 8px;
-            height: 8px;
-            background: #8b5cf6;
-            border-radius: 50%;
-            animation: typing 1.4s infinite ease-in-out;
-        }
-
+        .typing-indicator { display: flex; gap: 4px; padding: 12px; }
+        .typing-indicator span { width: 8px; height: 8px; background: #8b5cf6; border-radius: 50%; animation: typing 1.4s infinite ease-in-out; }
         .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
         .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-10px); opacity: 1; } }
 
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-            30% { transform: translateY(-10px); opacity: 1; }
-        }
+        /* Floating */
+        .floating { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
 
-        /* Floating animation */
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
+        /* Pulse */
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.05); } }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
+        /* Confetti pieces (positioned absolutely, appended to body) */
+        .confetti-piece { position: fixed; width: 10px; height: 10px; opacity: 0; top: -20px; pointer-events: none; z-index: 9999; animation: confettiFall 3s ease-in forwards; border-radius: 2px; }
+        @keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
 
-        /* Pulse animation */
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
-        }
-
-        /* Confetti animation */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            animation: confetti 3s ease-in-out infinite;
-            opacity: 0;
-        }
-
-        @keyframes confetti {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-
-        /* 3D Cube for loading */
-        .cube-loader {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: cube-spin 2s infinite linear;
-        }
-
-        .cube-loader div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-            border: 2px solid rgba(255,255,255,0.2);
-            opacity: 0.8;
-            border-radius: 8px;
-        }
-
+        /* 3D Cube loader */
+        .cube-loader { width: 100px; height: 100px; position: relative; transform-style: preserve-3d; animation: cube-spin 2s infinite linear; perspective: 300px; }
+        .cube-loader div { position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #8b5cf6, #3b82f6); border: 2px solid rgba(255,255,255,0.2); opacity: 0.8; border-radius: 8px; }
         .cube-loader .front  { transform: translateZ(50px); }
         .cube-loader .back   { transform: rotateY(180deg) translateZ(50px); }
         .cube-loader .right  { transform: rotateY(90deg) translateZ(50px); }
         .cube-loader .left   { transform: rotateY(-90deg) translateZ(50px); }
         .cube-loader .top    { transform: rotateX(90deg) translateZ(50px); }
         .cube-loader .bottom { transform: rotateX(-90deg) translateZ(50px); }
+        @keyframes cube-spin { from { transform: rotateX(0deg) rotateY(0deg); } to { transform: rotateX(360deg) rotateY(360deg); } }
 
-        @keyframes cube-spin {
-            from { transform: rotateX(0deg) rotateY(0deg); }
-            to { transform: rotateX(360deg) rotateY(360deg); }
+        /* AI Plan output */
+        .ai-plan-text { white-space: pre-wrap; font-size: 0.875rem; line-height: 1.7; color: #d1d5db; }
+        .ai-plan-text strong, .ai-plan-text b { color: #c4b5fd; }
+
+        /* Spin animation for loading */
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-spinner { border: 3px solid rgba(255,255,255,0.1); border-radius: 50%; border-top: 3px solid #8b5cf6; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; }
+
+        /* ── THEME SYSTEM (synced with index.html) ── */
+        :root {
+            --bg: #0a0a0f; --surface: rgba(255,255,255,0.03); --surface-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.07); --text: #ffffff; --text-muted: #9ca3af;
+            --accent: #9333ea; --accent2: #3b82f6; --glow: rgba(147,51,234,0.25); --nav-bg: rgba(0,0,0,0.35);
         }
+        body.theme-dark { background: var(--bg); color: var(--text); }
+        body.theme-light { --bg:#f0f4ff;--surface:rgba(255,255,255,0.75);--border:rgba(0,0,0,0.1);--text:#1a1a2e;--text-muted:#4b5563;--glow:rgba(147,51,234,0.12);--nav-bg:rgba(255,255,255,0.7); background:linear-gradient(135deg,#eef2ff,#e0e7ff,#f0fdf4);color:#1a1a2e; }
+        body.theme-synthwave { --bg:#0d0221;--surface:rgba(255,0,255,0.04);--border:rgba(255,0,255,0.15);--text:#f0e6ff;--text-muted:#c084fc;--accent:#ff00ff;--accent2:#00ffff;--glow:rgba(255,0,255,0.3);--nav-bg:rgba(13,2,33,0.8); background:#0d0221;color:#f0e6ff; }
+        body.theme-forest { --bg:#0a120a;--surface:rgba(34,197,94,0.04);--border:rgba(34,197,94,0.12);--text:#ecfdf5;--text-muted:#6ee7b7;--accent:#22c55e;--accent2:#84cc16;--glow:rgba(34,197,94,0.2); background:#0a120a;color:#ecfdf5; }
+        body.theme-ocean { --bg:#020c1b;--surface:rgba(6,182,212,0.04);--border:rgba(6,182,212,0.12);--text:#e0f7fa;--text-muted:#67e8f9;--accent:#06b6d4;--accent2:#0ea5e9;--glow:rgba(6,182,212,0.2); background:#020c1b;color:#e0f7fa; }
+        body { background:var(--bg);color:var(--text); transition:background 0.4s,color 0.3s; }
+        .glass { background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--border);box-shadow:0 8px 32px var(--glow); }
+        .glass-card { background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--border);transition:all 0.3s; }
+        .glass-card:hover { background:var(--surface-hover);border-color:rgba(139,92,246,0.4);transform:translateY(-5px);box-shadow:0 20px 40px var(--glow); }
+        #resultsModal .glass-card:hover { transform:none; }
+        body.theme-light .text-gray-300, body.theme-light .text-gray-400 { color:var(--text-muted)!important; }
+        body.theme-light input { color:var(--text)!important;background:rgba(255,255,255,0.8)!important; }
+        body.theme-synthwave::after { content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px); }
+
+        /* scroll-reveal */
+        .reveal { opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease; }
+        .reveal.visible { opacity:1;transform:translateY(0); }
+        .reveal-delay-1 { transition-delay:0.1s; }
+        .reveal-delay-2 { transition-delay:0.2s; }
+
+        /* logo glow */
+        @keyframes logoGlow { 0%,100%{box-shadow:0 0 12px rgba(147,51,234,0.5);}50%{box-shadow:0 0 24px rgba(59,130,246,0.7);} }
+        .logo-sk { animation:logoGlow 3s ease-in-out infinite; }
+
+        /* theme picker */
+        .theme-picker { position:fixed;top:70px;right:20px;z-index:200; }
+        .theme-btn-main { width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:2px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px var(--glow);transition:transform 0.3s;font-size:1rem;color:white; }
+        .theme-btn-main:hover { transform:scale(1.1) rotate(15deg); }
+        .theme-dropdown { position:absolute;right:0;top:52px;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:10px;width:190px;opacity:0;visibility:hidden;transform:translateY(-8px) scale(0.95);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+        .theme-dropdown.open { opacity:1;visibility:visible;transform:translateY(0) scale(1); }
+        .theme-option { display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;cursor:pointer;transition:background 0.2s;border:none;background:transparent;width:100%;color:#fff;font-size:0.85rem; }
+        .theme-option:hover { background:rgba(255,255,255,0.08); }
+        .theme-option.active { background:rgba(255,255,255,0.12); }
+        .theme-swatch { width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);flex-shrink:0; }
+        @keyframes pageFadeIn { from{opacity:0}to{opacity:1} }
+        body { animation:pageFadeIn 0.5s ease; }
+
     </style>
 </head>
-<body class="relative min-h-screen">
-    <!-- Background elements -->
+<body class="theme-dark relative min-h-screen">
+
+    <!-- Background -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
@@ -301,19 +145,14 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg floating">
-                        SK
-                    </div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                        AI Level Assessment
-                    </span>
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg logo-sk">SK</div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">AI Level Assessment</span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <!-- Apple-style terminal buttons -->
                     <div class="flex gap-1.5">
                         <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500 animate-pulse" style="animation-delay: 0.2s"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse" style="animation-delay: 0.4s"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 animate-pulse" style="animation-delay:0.2s"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse" style="animation-delay:0.4s"></div>
                     </div>
                     <a href="index.html" class="text-gray-300 hover:text-white transition flex items-center gap-2 group">
                         <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
@@ -324,38 +163,45 @@
         </div>
     </nav>
 
+    <!-- Theme Picker -->
+    <div class="theme-picker" id="themePicker">
+        <button class="theme-btn-main" onclick="toggleThemeDropdown()" title="change theme">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="theme-dropdown" id="themeDropdown">
+            <div style="font-size:0.7rem;color:#6b7280;padding:4px 12px 8px;text-transform:uppercase;letter-spacing:0.05em;">choose theme</div>
+            <button class="theme-option active" data-theme="dark" onclick="setTheme('dark')"><span class="theme-swatch" style="background:linear-gradient(135deg,#0a0a0f,#1a1a2e)"></span> 🌙 dark</button>
+            <button class="theme-option" data-theme="light" onclick="setTheme('light')"><span class="theme-swatch" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"></span> ☀️ light</button>
+            <button class="theme-option" data-theme="synthwave" onclick="setTheme('synthwave')"><span class="theme-swatch" style="background:linear-gradient(135deg,#ff00ff,#00ffff)"></span> 🌆 synthwave</button>
+            <button class="theme-option" data-theme="forest" onclick="setTheme('forest')"><span class="theme-swatch" style="background:linear-gradient(135deg,#22c55e,#84cc16)"></span> 🌿 forest</button>
+            <button class="theme-option" data-theme="ocean" onclick="setTheme('ocean')"><span class="theme-swatch" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9)"></span> 🌊 ocean</button>
+        </div>
+    </div>
+
     <main class="relative z-10 pt-24 pb-12 px-4">
         <div class="container mx-auto max-w-4xl">
-            <!-- Header with animated elements -->
-            <div class="text-center mb-12">
+
+            <!-- Header -->
+            <div class="text-center mb-12 reveal">
                 <div class="inline-block p-4 bg-purple-500/10 rounded-2xl mb-6 floating border border-purple-500/20">
                     <i class="fas fa-robot text-5xl text-purple-400"></i>
                 </div>
                 <h1 class="text-5xl md:text-6xl font-bold mb-4">
-                    <span class="bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">
-                        AI Level Assessment
-                    </span>
+                    <span class="bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent">AI Level Assessment</span>
                 </h1>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Let our AI analyze your skills and create a personalized learning path just for you
-                </p>
-                
-                <!-- Stats badges -->
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Let our AI analyze your skills and create a personalized learning path just for you</p>
                 <div class="flex flex-wrap gap-3 justify-center mt-6">
-                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300">
-                        <i class="fas fa-clock text-purple-400 mr-2"></i>5 min assessment
-                    </span>
-                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300">
-                        <i class="fas fa-brain text-blue-400 mr-2"></i>AI-powered analysis
-                    </span>
-                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300">
-                        <i class="fas fa-gem text-yellow-400 mr-2"></i>Personalized plan
+                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300"><i class="fas fa-clock text-purple-400 mr-2"></i>5 min assessment</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300"><i class="fas fa-brain text-blue-400 mr-2"></i>AI-powered analysis</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300"><i class="fas fa-gem text-yellow-400 mr-2"></i>Personalized plan</span>
+                    <span class="px-4 py-2 glass rounded-full text-sm text-gray-300 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>powered by Gemma 3
                     </span>
                 </div>
             </div>
 
-            <!-- Progress Section -->
-            <div class="glass rounded-2xl p-6 mb-8">
+            <!-- Progress -->
+            <div class="glass rounded-2xl p-6 mb-8 reveal">
                 <div class="flex justify-between items-center mb-4">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-chart-line text-purple-400"></i>
@@ -364,22 +210,21 @@
                     <span class="text-purple-400 font-mono" id="progressPercent">0%</span>
                 </div>
                 <div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
-                    <div id="progressBar" class="progress-bar h-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-full" style="width: 0%"></div>
+                    <div id="progressBar" class="progress-bar h-full bg-gradient-to-r from-purple-600 to-blue-600 rounded-full" style="width:0%"></div>
                 </div>
                 <div class="flex justify-between mt-2 text-xs text-gray-500">
                     <span>Start</span>
+                    <span id="questionCounter">Question 1 of 10</span>
                     <span>Complete</span>
                 </div>
             </div>
 
-            <!-- Questions Container -->
-            <div id="questionsContainer" class="space-y-6 mb-8">
-                <!-- Questions will be dynamically inserted here -->
-            </div>
+            <!-- Questions -->
+            <div id="questionsContainer" class="space-y-6 mb-8"></div>
 
-            <!-- Navigation Buttons -->
+            <!-- Navigation -->
             <div class="flex justify-between gap-4">
-                <button id="prevBtn" onclick="previousQuestion()" class="px-6 py-3 glass text-white rounded-xl font-semibold hover:bg-white/10 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 group">
+                <button id="prevBtn" onclick="previousQuestion()" disabled class="px-6 py-3 glass text-white rounded-xl font-semibold hover:bg-white/10 transition disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2 group">
                     <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
                     Previous
                 </button>
@@ -392,59 +237,50 @@
     </main>
 
     <!-- Results Modal -->
-    <div id="resultsModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-4 hidden">
+    <div id="resultsModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[100] flex items-center justify-center p-4 hidden">
         <div class="glass-card max-w-3xl w-full rounded-3xl p-8 max-h-[90vh] overflow-y-auto relative">
-            <!-- Close button -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-gray-400 hover:text-white transition">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-gray-400 hover:text-white transition z-10">
                 <i class="fas fa-times"></i>
             </button>
 
-            <!-- Success animation -->
             <div class="text-center mb-6">
-                <div class="relative inline-block">
-                    <div class="text-7xl mb-4 floating">🎉</div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="confetti" style="left: 10%"></div>
-                        <div class="confetti" style="left: 30%; animation-delay: 0.5s"></div>
-                        <div class="confetti" style="left: 50%; animation-delay: 1s"></div>
-                        <div class="confetti" style="left: 70%; animation-delay: 1.5s"></div>
-                        <div class="confetti" style="left: 90%; animation-delay: 2s"></div>
-                    </div>
-                </div>
+                <div class="text-7xl mb-4 floating">🎉</div>
                 <h2 class="text-3xl font-bold text-white mb-2">Assessment Complete!</h2>
-                <p class="text-gray-400">Your AI-powered learning path has been generated</p>
+                <p class="text-gray-400">your ai-powered learning path has been generated ✨</p>
             </div>
 
             <!-- Level Badge -->
-            <div id="levelBadge" class="text-center mb-8">
+            <div class="text-center mb-8">
                 <div class="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white font-bold text-xl shadow-lg pulse">
-                    Level: <span id="userLevel">Intermediate</span>
+                    🏆 Level: <span id="userLevel">Intermediate</span>
                 </div>
             </div>
 
-            <!-- Study Plan -->
-            <div id="studyPlan" class="space-y-4 mb-8">
-                <!-- Study plan will be dynamically inserted -->
-            </div>
+            <!-- Quick stats row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="quickStats"></div>
+
+            <!-- Full AI Study Plan -->
+            <div id="studyPlan" class="space-y-4 mb-8"></div>
 
             <!-- Action Buttons -->
-            <div class="flex gap-4 justify-center">
+            <div class="flex flex-wrap gap-4 justify-center">
                 <button onclick="saveStudyPlan()" class="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
-                    <i class="fas fa-save"></i>
-                    Save My Plan
+                    <i class="fas fa-save"></i> Save My Plan
                 </button>
                 <button onclick="downloadPlan()" class="px-6 py-3 glass text-white rounded-xl font-semibold hover:bg-white/10 transition flex items-center gap-2">
-                    <i class="fas fa-download"></i>
-                    Download PDF
+                    <i class="fas fa-download"></i> Download Plan
+                </button>
+                <button onclick="closeModal(); window.location.href='index.html';" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                    <i class="fas fa-home"></i> Go to Dev Lab
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- AI Analysis Modal -->
-    <div id="aiModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-4 hidden">
+    <!-- AI Analysis Modal (loading) -->
+    <div id="aiModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-[100] flex items-center justify-center p-4 hidden">
         <div class="glass-card max-w-md w-full rounded-3xl p-8 text-center">
-            <div class="cube-loader mx-auto mb-6">
+            <div class="cube-loader mx-auto mb-6" style="perspective:300px">
                 <div class="front"></div>
                 <div class="back"></div>
                 <div class="right"></div>
@@ -452,280 +288,234 @@
                 <div class="top"></div>
                 <div class="bottom"></div>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-2">AI is Analyzing</h3>
-            <p class="text-gray-400 mb-4">Our AI is processing your responses to create the perfect learning path...</p>
+            <h3 class="text-2xl font-bold text-white mb-2">AI is Analyzing ✨</h3>
+            <p class="text-gray-400 mb-4" id="aiModalStatus">processing your responses to create the perfect learning path...</p>
             <div class="typing-indicator justify-center">
                 <span></span><span></span><span></span>
             </div>
             <div class="mt-6 text-sm text-gray-500">
                 <i class="fas fa-microchip mr-2 text-purple-400"></i>
-                Using Gemini 2.0 AI Model
+                powered by Gemma 3 · google/gemma-3-12b-it
             </div>
         </div>
     </div>
 
     <script>
-        // API Key (your provided key)
-        const API_KEY = 'AIzaSyAfygCkJYhTtbx15_Hlcg8KpDNQdXD3CiI';
-        
-        // Particle background
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 10 + 's';
-                particle.style.animationDuration = 10 + Math.random() * 20 + 's';
-                particlesContainer.appendChild(particle);
-            }
+        // ============================================================
+        // THEME SYSTEM (mirrors index.html)
+        // ============================================================
+        const THEMES = ['dark','light','synthwave','forest','ocean'];
+        let currentTheme = localStorage.getItem('sk_theme') || 'dark';
+
+        function setTheme(name) {
+            THEMES.forEach(t => document.body.classList.remove('theme-' + t));
+            document.body.classList.add('theme-' + name);
+            currentTheme = name;
+            localStorage.setItem('sk_theme', name);
+            document.querySelectorAll('.theme-option').forEach(el => el.classList.toggle('active', el.dataset.theme === name));
+            closeThemeDropdown();
         }
-        createParticles();
+        function toggleThemeDropdown() { document.getElementById('themeDropdown').classList.toggle('open'); }
+        function closeThemeDropdown() { document.getElementById('themeDropdown').classList.remove('open'); }
+        document.addEventListener('click', e => { if (!e.target.closest('#themePicker')) closeThemeDropdown(); });
+        document.addEventListener('keydown', e => { if (e.key==='t' && !e.target.matches('input,textarea')) { setTheme(THEMES[(THEMES.indexOf(currentTheme)+1)%THEMES.length]); } });
+        setTheme(currentTheme);
 
-        // Navigation scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-black/50');
-            } else {
-                nav.classList.remove('bg-black/50');
+        // Scroll reveal
+        const ro = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);} }), {threshold:0.08});
+        document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+        // ============================================================
+        // OPENROUTER CONFIG — Gemma 3 12B
+        // ============================================================
+        const OR_KEY = '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';
+        const OR_MODEL = 'google/gemma-3-12b-it:free';
+        const OR_URL = 'https://openrouter.ai/api/v1/chat/completions';
+
+        async function callAI(systemPrompt, userPrompt) {
+            const res = await fetch(OR_URL, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${OR_KEY}`,
+                    'Content-Type': 'application/json',
+                    'HTTP-Referer': 'https://sajidakhan.devlab',
+                    'X-Title': 'Sajida Khan Dev Lab'
+                },
+                body: JSON.stringify({
+                    model: OR_MODEL,
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: userPrompt }
+                    ],
+                    max_tokens: 2000,
+                    temperature: 0.7
+                })
+            });
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err?.error?.message || `API error ${res.status}`);
             }
-        });
+            const data = await res.json();
+            return data.choices?.[0]?.message?.content || 'no response';
+        }
 
-        // Questions database with AI-generated content
+        // ============================================================
+        // QUESTIONS
+        // ============================================================
         const questions = [
             {
-                id: 1,
-                question: "What is your current programming experience level?",
-                options: [
-                    "Complete Beginner - Never coded before",
-                    "Basic Knowledge - Know some syntax and basic concepts",
-                    "Intermediate - Can build small projects independently",
-                    "Advanced - Professional developer with experience"
-                ],
-                category: "experience",
-                weight: 2
+                id: 1, question: "What is your current programming experience level?",
+                options: ["Complete Beginner — never coded before", "Basic Knowledge — know some syntax and basic concepts", "Intermediate — can build small projects independently", "Advanced — professional developer with experience"],
+                category: "experience", weight: 2
             },
             {
-                id: 2,
-                question: "Which tech domain excites you the most?",
-                options: [
-                    "🤖 AI & Machine Learning - Neural networks, LLMs, computer vision",
-                    "🌐 Web Development - Full-stack, modern frameworks, web apps",
-                    "🛡️ Cybersecurity - Ethical hacking, network security, cryptography",
-                    "📊 Data Science - Analytics, visualization, big data",
-                    "📱 Mobile Development - iOS, Android, cross-platform apps",
-                    "🎮 Game Development - Unity, Unreal, game design",
-                    "🔧 DevOps & Cloud - AWS, Docker, Kubernetes, CI/CD"
-                ],
-                category: "interest",
-                weight: 3
+                id: 2, question: "Which tech domain excites you the most?",
+                options: ["🤖 AI & Machine Learning — neural networks, LLMs, computer vision", "🌐 Web Development — full-stack, modern frameworks, web apps", "🛡️ Cybersecurity — ethical hacking, network security, cryptography", "📊 Data Science — analytics, visualization, big data", "📱 Mobile Development — iOS, Android, cross-platform apps", "🎮 Game Development — Unity, Unreal, game design", "🔧 DevOps & Cloud — AWS, Docker, Kubernetes, CI/CD"],
+                category: "interest", weight: 3
             },
             {
-                id: 3,
-                question: "How many hours can you dedicate to learning per week?",
-                options: [
-                    "🌙 Casual (5-7 hours) - Learning as a hobby",
-                    "⚡ Part-time (10-14 hours) - Serious about career change",
-                    "🔥 Full-time (20-28 hours) - Intensive learning",
-                    "🚀 Immersive (35+ hours) - Bootcamp style dedication"
-                ],
-                category: "dedication",
-                weight: 2
+                id: 3, question: "How many hours can you dedicate to learning per week?",
+                options: ["🌙 Casual (5–7 hours) — learning as a hobby", "⚡ Part-time (10–14 hours) — serious about career change", "🔥 Full-time (20–28 hours) — intensive learning", "🚀 Immersive (35+ hours) — bootcamp style dedication"],
+                category: "dedication", weight: 2
             },
             {
-                id: 4,
-                question: "What is your primary learning goal?",
-                options: [
-                    "💼 Career Change - Get a job in tech",
-                    "📈 Career Advancement - Level up current skills",
-                    "🚀 Entrepreneurship - Build your own startup",
-                    "🎓 Academic - Research and deep understanding",
-                    "🎯 Personal Project - Build something specific",
-                    "💰 Freelancing - Start earning with tech skills"
-                ],
-                category: "goal",
-                weight: 2
+                id: 4, question: "What is your primary learning goal?",
+                options: ["💼 Career Change — get a job in tech", "📈 Career Advancement — level up current skills", "🚀 Entrepreneurship — build your own startup", "🎓 Academic — research and deep understanding", "🎯 Personal Project — build something specific", "💰 Freelancing — start earning with tech skills"],
+                category: "goal", weight: 2
             },
             {
-                id: 5,
-                question: "Which programming languages are you familiar with?",
-                options: [
-                    "🐍 Python - Data science, AI, backend",
-                    "🌐 JavaScript/TypeScript - Web development",
-                    "☕ Java - Enterprise, Android",
-                    "⚡ C++ - Games, systems programming",
-                    "🦀 Rust - Systems, performance-critical apps",
-                    "🎯 C# - .NET, game development",
-                    "📱 Swift/Kotlin - Mobile development",
-                    "🔧 None - Starting from scratch"
-                ],
-                category: "languages",
-                weight: 2
+                id: 5, question: "Which programming languages are you familiar with?",
+                options: ["🐍 Python — data science, AI, backend", "🌐 JavaScript/TypeScript — web development", "☕ Java — enterprise, Android", "⚡ C++ — games, systems programming", "🦀 Rust — systems, performance-critical apps", "🎯 C# — .NET, game development", "📱 Swift/Kotlin — mobile development", "🔧 None — starting from scratch"],
+                category: "languages", weight: 2
             },
             {
-                id: 6,
-                question: "What's your comfort level with mathematics?",
-                options: [
-                    "📚 Basic - Arithmetic and basic algebra",
-                    "📐 Intermediate - Calculus, linear algebra",
-                    "📊 Advanced - Statistics, probability",
-                    "🧮 Expert - Mathematical modeling, optimization"
-                ],
-                category: "math",
-                weight: 1
+                id: 6, question: "What's your comfort level with mathematics?",
+                options: ["📚 Basic — arithmetic and basic algebra", "📐 Intermediate — calculus, linear algebra", "📊 Advanced — statistics, probability", "🧮 Expert — mathematical modeling, optimization"],
+                category: "math", weight: 1
             },
             {
-                id: 7,
-                question: "Do you have any project experience?",
-                options: [
-                    "🎯 No projects yet",
-                    "📝 Small personal projects",
-                    "🤝 Open source contributions",
-                    "💼 Commercial/Professional projects",
-                    "🏆 Hackathon projects"
-                ],
-                category: "projects",
-                weight: 2
+                id: 7, question: "Do you have any project experience?",
+                options: ["🎯 No projects yet", "📝 Small personal projects", "🤝 Open source contributions", "💼 Commercial/professional projects", "🏆 Hackathon projects"],
+                category: "projects", weight: 2
             },
             {
-                id: 8,
-                question: "What's your preferred learning style?",
-                options: [
-                    "📺 Video Tutorials - Visual learning",
-                    "📚 Reading Documentation - Text-based learning",
-                    "🛠️ Hands-on Projects - Learn by building",
-                    "👥 Group Learning - Study with others",
-                    "🎮 Interactive - Gamified learning"
-                ],
-                category: "style",
-                weight: 1
+                id: 8, question: "What's your preferred learning style?",
+                options: ["📺 Video Tutorials — visual learning", "📚 Reading Documentation — text-based learning", "🛠️ Hands-on Projects — learn by building", "👥 Group Learning — study with others", "🎮 Interactive — gamified learning"],
+                category: "style", weight: 1
             },
             {
-                id: 9,
-                question: "Do you have a computer science background?",
-                options: [
-                    "🎓 Yes - CS degree",
-                    "📖 Self-taught - Learned on my own",
-                    "🔄 Currently studying",
-                    "🚫 No - Different field"
-                ],
-                category: "background",
-                weight: 2
+                id: 9, question: "Do you have a computer science background?",
+                options: ["🎓 Yes — CS degree", "📖 Self-taught — learned on my own", "🔄 Currently studying", "🚫 No — different field"],
+                category: "background", weight: 2
             },
             {
-                id: 10,
-                question: "What's your target timeline for achieving your goal?",
-                options: [
-                    "⚡ 3 months - Intensive, fast-paced",
-                    "📅 6 months - Balanced approach",
-                    "📆 1 year - Steady, consistent learning",
-                    "🎯 Flexible - No strict timeline"
-                ],
-                category: "timeline",
-                weight: 1
+                id: 10, question: "What's your target timeline for achieving your goal?",
+                options: ["⚡ 3 months — intensive, fast-paced", "📅 6 months — balanced approach", "📆 1 year — steady, consistent learning", "🎯 Flexible — no strict timeline"],
+                category: "timeline", weight: 1
             }
         ];
 
         let currentQuestion = 0;
         let answers = new Array(questions.length).fill(null);
+        let savedPlanText = '';
 
-        // Initialize
+        // ============================================================
+        // INIT
+        // ============================================================
         function init() {
+            createParticles();
             displayQuestion();
             updateProgress();
         }
 
-        // Display current question
+        // ============================================================
+        // DISPLAY QUESTION
+        // ============================================================
         function displayQuestion() {
             const container = document.getElementById('questionsContainer');
             const q = questions[currentQuestion];
-            
-            let optionsHtml = '';
-            q.options.forEach((option, index) => {
+
+            let optionsHtml = q.options.map((option, index) => {
                 const isSelected = answers[currentQuestion] === index;
-                optionsHtml += `
-                    <button onclick="selectOption(${index})" 
-                        class="option-btn w-full text-left p-5 rounded-xl text-gray-300 transition-all ${isSelected ? 'selected' : ''}">
-                        <span class="text-lg">${option}</span>
-                    </button>
-                `;
-            });
+                return `<button onclick="selectOption(${index})" class="option-btn w-full text-left p-5 rounded-xl text-gray-300 transition-all ${isSelected ? 'selected' : ''}">
+                    <span class="text-base">${option}</span>
+                </button>`;
+            }).join('');
 
             container.innerHTML = `
                 <div class="glass-card p-8 rounded-3xl">
-                    <div class="flex items-center gap-3 mb-6">
+                    <div class="flex items-center gap-3 mb-6 flex-wrap">
                         <span class="px-4 py-2 bg-purple-500/10 text-purple-400 text-sm rounded-full border border-purple-500/20">
-                            Question ${currentQuestion + 1}/${questions.length}
+                            Question ${currentQuestion + 1} / ${questions.length}
                         </span>
-                        <span class="px-4 py-2 bg-blue-500/10 text-blue-400 text-sm rounded-full border border-blue-500/20">
-                            Weight: ${q.weight}x
+                        <span class="px-4 py-2 bg-blue-500/10 text-blue-400 text-sm rounded-full border border-blue-500/20 capitalize">
+                            ${q.category}
                         </span>
                     </div>
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-8">${q.question}</h2>
-                    <div class="space-y-4">
-                        ${optionsHtml}
-                    </div>
-                </div>
-            `;
+                    <div class="space-y-4">${optionsHtml}</div>
+                </div>`;
 
-            // Update navigation buttons
+            // Update nav buttons
             document.getElementById('prevBtn').disabled = currentQuestion === 0;
-            document.getElementById('nextBtn').innerHTML = currentQuestion === questions.length - 1 ? 
-                '<span>Submit</span><i class="fas fa-check ml-2"></i>' : 
-                '<span>Next</span><i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>';
+            document.getElementById('nextBtn').innerHTML = currentQuestion === questions.length - 1
+                ? '<span>Submit</span><i class="fas fa-check ml-2"></i>'
+                : '<span>Next</span><i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>';
+
+            // Update counter
+            document.getElementById('questionCounter').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
         }
 
-        // Select option
+        // ============================================================
+        // SELECT OPTION
+        // ============================================================
         function selectOption(index) {
             answers[currentQuestion] = index;
-            
-            // Update UI
-            const options = document.querySelectorAll('.option-btn');
-            options.forEach(opt => opt.classList.remove('selected'));
-            options[index].classList.add('selected');
-            
-            // Update progress
+            document.querySelectorAll('.option-btn').forEach((btn, i) => {
+                btn.classList.toggle('selected', i === index);
+            });
             updateProgress();
-            
-            // Add haptic feedback simulation
+            // subtle next button pulse
             const btn = document.getElementById('nextBtn');
-            btn.style.transform = 'scale(0.95)';
-            setTimeout(() => btn.style.transform = '', 100);
+            btn.style.transform = 'scale(1.05)';
+            setTimeout(() => btn.style.transform = '', 150);
         }
 
-        // Next question
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
         async function nextQuestion() {
             if (answers[currentQuestion] === null) {
-                // Show error notification
-                showNotification('Please select an answer before proceeding', 'error');
+                showNotification('please pick an answer first! (ﾉ◕ヮ◕)ﾉ', 'error');
+                // shake the question card
+                const card = document.querySelector('.glass-card');
+                if (card) { card.style.animation = 'none'; card.style.transform = 'translateX(8px)'; setTimeout(() => { card.style.transform = ''; }, 150); }
                 return;
             }
-
             if (currentQuestion < questions.length - 1) {
                 currentQuestion++;
                 displayQuestion();
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                // Show AI analysis modal
+                // all done — submit!
                 document.getElementById('aiModal').classList.remove('hidden');
-                
-                // Calculate results with AI
                 await calculateResultsWithAI();
             }
-            
-            updateProgress();
         }
 
-        // Previous question
         function previousQuestion() {
             if (currentQuestion > 0) {
                 currentQuestion--;
                 displayQuestion();
                 updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        // Update progress bar
+        // ============================================================
+        // PROGRESS
+        // ============================================================
         function updateProgress() {
             const answered = answers.filter(a => a !== null).length;
             const progress = (answered / questions.length) * 100;
@@ -733,321 +523,346 @@
             document.getElementById('progressPercent').textContent = Math.round(progress) + '%';
         }
 
-        // Calculate results with Gemini AI
+        // ============================================================
+        // AI ANALYSIS — OPENROUTER / GEMMA 3
+        // ============================================================
         async function calculateResultsWithAI() {
+            const statusEl = document.getElementById('aiModalStatus');
             try {
-                // Prepare prompt for AI
-                const prompt = createAIPrompt();
-                
-                // Call Gemini API
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: prompt
-                            }]
-                        }]
-                    })
-                });
+                statusEl.textContent = 'sending your answers to gemma 3 ai...';
+                const prompt = buildPrompt();
+                statusEl.textContent = 'ai is crafting your personalized learning path... ✨';
+                const aiText = await callAI(
+                    `You are an expert tech learning advisor for "Sajida Khan Dev Lab", an AI-powered tutoring platform. 
+Analyze student assessment answers and create a detailed, encouraging, personalized learning plan.
+Always respond in this EXACT format with these section headers (use plain text, no markdown asterisks):
 
-                if (!response.ok) {
-                    throw new Error('API request failed');
-                }
+LEVEL: [Beginner/Intermediate/Advanced/Expert]
+FOCUS_AREA: [specific tech domain]
+DURATION: [e.g. 4 months]
+WEEKLY_HOURS: [e.g. 10-14 hours]
 
-                const data = await response.json();
-                const aiResponse = data.candidates[0].content.parts[0].text;
-                
-                // Parse AI response and generate study plan
-                const studyPlan = parseAIResponse(aiResponse);
-                
-                // Hide AI modal
+SUMMARY:
+[2-3 sentences personally addressing the student, what you detected about them]
+
+12-WEEK LEARNING PLAN:
+Week 1-3: [topic and what they'll build]
+Week 4-6: [topic and what they'll build]
+Week 7-9: [topic and what they'll build]
+Week 10-12: [topic and what they'll build]
+
+RECOMMENDED RESOURCES:
+- [resource 1]
+- [resource 2]
+- [resource 3]
+- [resource 4]
+
+PORTFOLIO PROJECTS:
+- [project idea 1]
+- [project idea 2]
+- [project idea 3]
+
+CAREER TIPS:
+- [tip 1]
+- [tip 2]
+- [tip 3]`,
+                    prompt
+                );
+                statusEl.textContent = 'almost done! building your dashboard...';
                 document.getElementById('aiModal').classList.add('hidden');
-                
-                // Display results
-                displayResults(studyPlan);
-                
-            } catch (error) {
-                console.error('AI analysis error:', error);
+                savedPlanText = aiText;
+                displayResults(parseAIResponse(aiText), aiText);
+            } catch (err) {
+                console.error('AI error:', err);
                 document.getElementById('aiModal').classList.add('hidden');
-                
-                // Fallback to local calculation
-                const studyPlan = calculateLocalResults();
-                displayResults(studyPlan);
-                
-                showNotification('Using local analysis (AI unavailable)', 'warning');
+                showNotification(`ai error: ${err.message} — using local analysis instead`, 'error');
+                const local = calculateLocalResults();
+                savedPlanText = JSON.stringify(local);
+                displayResults(local, null);
             }
         }
 
-        // Create AI prompt
-        function createAIPrompt() {
-            const answersText = answers.map((answer, index) => {
-                return `Question ${index + 1}: ${questions[index].question}\nAnswer: ${questions[index].options[answer]}`;
-            }).join('\n\n');
-
-            return `Based on the following assessment answers, create a personalized learning path for a tech student. Include:
-1. Current skill level (Beginner/Intermediate/Advanced/Expert)
-2. Recommended focus area
-3. Estimated study duration
-4. Weekly time commitment
-5. Detailed 12-week learning plan with weekly topics
-6. Recommended resources (courses, books, platforms)
-7. Project ideas for portfolio
-8. Career path recommendations
-
-Assessment Results:
-${answersText}
-
-Please provide a structured, detailed response that's encouraging and practical.`;
+        function buildPrompt() {
+            return `Student Assessment Answers:\n\n` +
+                answers.map((answer, i) =>
+                    `${i+1}. ${questions[i].question}\n   Answer: ${questions[i].options[answer]}`
+                ).join('\n\n');
         }
 
-        // Parse AI response
-        function parseAIResponse(response) {
-            // Basic parsing - in production you'd want more sophisticated parsing
+        // ============================================================
+        // PARSE AI RESPONSE
+        // ============================================================
+        function parseAIResponse(text) {
+            const get = (key) => {
+                const match = text.match(new RegExp(`${key}:\\s*(.+)`));
+                return match ? match[1].trim() : null;
+            };
             return {
-                level: extractLevel(response),
-                focusArea: extractFocusArea(response),
-                duration: extractDuration(response),
-                weeklyHours: extractWeeklyHours(response),
-                plan: response,
-                modules: [
-                    'Foundations and Core Concepts',
-                    'Hands-on Practice',
-                    'Advanced Topics',
-                    'Portfolio Projects'
-                ]
+                level: get('LEVEL') || extractLevel(text),
+                focusArea: get('FOCUS_AREA') || extractFocusArea(text),
+                duration: get('DURATION') || '4 months',
+                weeklyHours: get('WEEKLY_HOURS') || '10-14 hours',
+                rawText: text
             };
         }
 
-        // Helper functions to extract info from AI response
-        function extractLevel(response) {
-            if (response.includes('Beginner')) return 'Beginner';
-            if (response.includes('Intermediate')) return 'Intermediate';
-            if (response.includes('Advanced')) return 'Advanced';
-            if (response.includes('Expert')) return 'Expert';
-            return 'Intermediate';
+        function extractLevel(t) {
+            if (/\bexpert\b/i.test(t)) return 'Expert';
+            if (/\badvanced\b/i.test(t)) return 'Advanced';
+            if (/\bintermediate\b/i.test(t)) return 'Intermediate';
+            return 'Beginner';
         }
 
-        function extractFocusArea(response) {
-            const areas = ['AI', 'Web', 'Security', 'Data', 'Mobile', 'Game', 'DevOps'];
-            for (let area of areas) {
-                if (response.includes(area)) return area;
-            }
+        function extractFocusArea(t) {
+            const areas = ['AI', 'Machine Learning', 'Web Development', 'Cybersecurity', 'Data Science', 'Mobile', 'Game', 'DevOps'];
+            for (let a of areas) if (t.includes(a)) return a;
             return 'Web Development';
         }
 
-        function extractDuration(response) {
-            const match = response.match(/(\d+)\s*(week|month)/i);
-            return match ? match[0] : '4 months';
-        }
-
-        function extractWeeklyHours(response) {
-            const match = response.match(/(\d+)[-–]\s*(\d+)\s*hours/i);
-            return match ? match[0] : '10-15 hours';
-        }
-
-        // Fallback local calculation
+        // ============================================================
+        // LOCAL FALLBACK
+        // ============================================================
         function calculateLocalResults() {
-            // Calculate level based on answers
-            let totalScore = 0;
-            let maxScore = 0;
-            
-            answers.forEach((answer, index) => {
-                if (answer !== null) {
-                    totalScore += (answer + 1) * questions[index].weight;
-                    maxScore += 4 * questions[index].weight;
+            let totalScore = 0, maxScore = 0;
+            answers.forEach((ans, i) => {
+                if (ans !== null) {
+                    totalScore += (ans + 1) * questions[i].weight;
+                    maxScore += Math.max(questions[i].options.length, 4) * questions[i].weight;
                 }
             });
-            
-            const percentage = (totalScore / maxScore) * 100;
-            let level = '';
-            
-            if (percentage < 30) level = 'Beginner';
-            else if (percentage < 50) level = 'Intermediate Beginner';
-            else if (percentage < 70) level = 'Intermediate';
-            else if (percentage < 85) level = 'Advanced';
-            else level = 'Expert';
-            
-            // Determine focus area from question 2
-            const interestIndex = answers[1] || 1;
-            const focusAreas = ['AI & Machine Learning', 'Web Development', 'Cybersecurity', 'Data Science', 'Mobile Development', 'Game Development', 'DevOps & Cloud'];
-            const focusArea = focusAreas[interestIndex] || 'Web Development';
-            
-            // Determine duration from question 3
-            const timeIndex = answers[2] || 1;
-            const durations = ['6 months', '4 months', '3 months', '2 months'];
-            const duration = durations[timeIndex];
-            
-            // Determine weekly hours
-            const weeklyHours = timeIndex === 0 ? '5-7' : timeIndex === 1 ? '10-14' : timeIndex === 2 ? '20-28' : '35+';
-            
-            return {
-                level,
-                focusArea,
-                duration,
-                weeklyHours: weeklyHours + ' hours',
-                modules: [
-                    'Foundations and Core Concepts',
-                    'Hands-on Projects',
-                    'Advanced Topics',
-                    'Portfolio Building'
-                ],
-                resources: [
-                    'Interactive coding platforms',
-                    'Video courses and documentation',
-                    'Practice projects',
-                    'Community forums'
-                ]
-            };
+            const pct = (totalScore / maxScore) * 100;
+            const level = pct < 30 ? 'Beginner' : pct < 50 ? 'Intermediate Beginner' : pct < 70 ? 'Intermediate' : pct < 85 ? 'Advanced' : 'Expert';
+            const focusAreas = ['AI & Machine Learning','Web Development','Cybersecurity','Data Science','Mobile Development','Game Development','DevOps & Cloud'];
+            const focusArea = focusAreas[answers[1]] || 'Web Development';
+            const durations = ['6 months','4 months','3 months','2 months'];
+            const duration = durations[answers[2]] || '4 months';
+            const hoursMap = ['5-7','10-14','20-28','35+'];
+            const weeklyHours = (hoursMap[answers[2]] || '10-14') + ' hours/week';
+            return { level, focusArea, duration, weeklyHours, rawText: null };
         }
 
-        // Display results
-        function displayResults(studyPlan) {
-            const modal = document.getElementById('resultsModal');
-            const studyPlanDiv = document.getElementById('studyPlan');
-            
-            document.getElementById('userLevel').textContent = studyPlan.level;
-            
-            let modulesHtml = '';
-            studyPlan.modules.forEach((module, index) => {
-                modulesHtml += `
-                    <div class="glass rounded-xl p-4 hover:bg-white/5 transition">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white font-bold shadow-lg">
-                                ${index + 1}
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-white font-semibold">${module}</h4>
-                                <p class="text-sm text-gray-400">Week ${index * 3 + 1}-${index * 3 + 3}</p>
-                            </div>
+        // ============================================================
+        // DISPLAY RESULTS
+        // ============================================================
+        function displayResults(plan, rawAiText) {
+            document.getElementById('userLevel').textContent = plan.level;
+
+            // Quick stats
+            document.getElementById('quickStats').innerHTML = [
+                { icon: 'fa-compass', color: 'text-purple-400', label: 'Focus', value: plan.focusArea },
+                { icon: 'fa-clock', color: 'text-blue-400', label: 'Duration', value: plan.duration },
+                { icon: 'fa-fire', color: 'text-orange-400', label: 'Weekly', value: plan.weeklyHours },
+                { icon: 'fa-gem', color: 'text-yellow-400', label: 'XP Bonus', value: '+500 XP' }
+            ].map(s => `
+                <div class="glass p-4 rounded-xl text-center">
+                    <i class="fas ${s.icon} ${s.color} text-xl mb-2 block"></i>
+                    <p class="text-xs text-gray-400 mb-1">${s.label}</p>
+                    <p class="text-white font-semibold text-sm">${s.value}</p>
+                </div>`).join('');
+
+            // Study Plan
+            const planDiv = document.getElementById('studyPlan');
+            if (rawAiText) {
+                // Show the full AI text nicely formatted
+                const sections = parseIntoSections(rawAiText);
+                planDiv.innerHTML = sections.map(s => `
+                    <div class="glass rounded-2xl p-5">
+                        ${s.title ? `<h4 class="text-purple-400 font-semibold mb-3 flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i>${s.title}</h4>` : ''}
+                        <div class="ai-plan-text">${s.content}</div>
+                    </div>`).join('');
+            } else {
+                // Fallback UI
+                planDiv.innerHTML = `
+                    <div class="glass rounded-2xl p-5 bg-gradient-to-r from-purple-600/10 to-blue-600/10 border border-purple-500/20">
+                        <h4 class="text-white font-semibold mb-4 flex items-center gap-2"><i class="fas fa-road text-purple-400"></i>your learning modules</h4>
+                        <div class="space-y-3">
+                            ${['Foundations & Core Concepts','Hands-on Practice & Projects','Advanced Topics','Portfolio Building'].map((m,i) => `
+                                <div class="flex items-center gap-4 glass p-4 rounded-xl hover:bg-white/5 transition">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white font-bold">${i+1}</div>
+                                    <div><h5 class="text-white font-semibold">${m}</h5><p class="text-xs text-gray-400">Week ${i*3+1}–${i*3+3}</p></div>
+                                </div>`).join('')}
                         </div>
                     </div>
-                `;
-            });
-            
-            studyPlanDiv.innerHTML = `
-                <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl p-6 mb-6 border border-purple-500/30">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                        <i class="fas fa-road text-purple-400"></i>
-                        Your Personalized Learning Path
-                    </h3>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div class="glass p-3 rounded-xl">
-                            <p class="text-sm text-gray-400">Focus Area</p>
-                            <p class="text-white font-semibold">${studyPlan.focusArea}</p>
-                        </div>
-                        <div class="glass p-3 rounded-xl">
-                            <p class="text-sm text-gray-400">Duration</p>
-                            <p class="text-white font-semibold">${studyPlan.duration}</p>
-                        </div>
-                        <div class="glass p-3 rounded-xl">
-                            <p class="text-sm text-gray-400">Weekly Hours</p>
-                            <p class="text-white font-semibold">${studyPlan.weeklyHours}</p>
-                        </div>
-                        <div class="glass p-3 rounded-xl">
-                            <p class="text-sm text-gray-400">Recommended Pace</p>
-                            <p class="text-white font-semibold">${studyPlan.level}</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
-                    <i class="fas fa-calendar-alt text-purple-400"></i>
-                    Your Learning Modules:
-                </h4>
-                <div class="space-y-3 mb-6">
-                    ${modulesHtml}
-                </div>
-                
-                <div class="glass p-5 rounded-xl">
-                    <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
-                        <i class="fas fa-lightbulb text-yellow-400"></i>
-                        AI Recommendations:
-                    </h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                            <span>Start with fundamentals - don't rush</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                            <span>Build at least 3 portfolio projects</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                            <span>Join coding communities for support</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check-circle text-green-400 mt-1"></i>
-                            <span>Practice daily, even if just 30 minutes</span>
-                        </li>
-                    </ul>
-                </div>
-            `;
-            
-            modal.classList.remove('hidden');
-            
-            // Trigger confetti effect
+                    <div class="glass rounded-2xl p-5">
+                        <h4 class="text-white font-semibold mb-3 flex items-center gap-2"><i class="fas fa-lightbulb text-yellow-400"></i>quick tips</h4>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i>Start with fundamentals — don't rush</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i>Build at least 3 portfolio projects</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i>Join coding communities for support</li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check-circle text-green-400 mt-0.5"></i>Practice daily, even just 30 minutes</li>
+                        </ul>
+                    </div>`;
+            }
+
+            document.getElementById('resultsModal').classList.remove('hidden'); document.body.style.overflow = 'hidden';
             createConfetti();
         }
 
-        // Create confetti effect
+        // Parse AI text into titled sections for display
+        function parseIntoSections(text) {
+            const sectionHeaders = ['SUMMARY', '12-WEEK LEARNING PLAN', 'RECOMMENDED RESOURCES', 'PORTFOLIO PROJECTS', 'CAREER TIPS'];
+            const sections = [];
+            let remaining = text;
+
+            // Strip the metadata lines at top
+            remaining = remaining.replace(/^(LEVEL|FOCUS_AREA|DURATION|WEEKLY_HOURS):.*$/gm, '').trim();
+
+            for (let i = 0; i < sectionHeaders.length; i++) {
+                const header = sectionHeaders[i];
+                const nextHeader = sectionHeaders[i + 1];
+                const start = remaining.indexOf(header + ':');
+                if (start === -1) continue;
+                const contentStart = start + header.length + 1;
+                const end = nextHeader ? remaining.indexOf(nextHeader + ':') : remaining.length;
+                const content = remaining.slice(contentStart, end === -1 ? remaining.length : end).trim();
+                if (content) sections.push({ title: header.replace(/-/g,' ').toLowerCase(), content: formatContent(content) });
+            }
+
+            if (sections.length === 0) {
+                sections.push({ title: 'your ai learning plan', content: formatContent(remaining) });
+            }
+
+            return sections;
+        }
+
+        function formatContent(text) {
+            // Fix: split first, convert bullets, then join with <br>
+            return text.split('\n').map(line => {
+                const trimmed = line.trim();
+                if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+                    return '<span style="display:block;padding-left:1em">• ' + escHtml(trimmed.slice(2)) + '</span>';
+                }
+                if (/^Week \d/.test(trimmed) || /^\d+\./.test(trimmed)) {
+                    return '<span style="display:block;color:#c4b5fd;font-weight:600;margin-top:0.5em">' + escHtml(trimmed) + '</span>';
+                }
+                return escHtml(trimmed);
+            }).filter(l => l).join('<br>');
+        }
+        function escHtml(s) {
+            return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        // ============================================================
+        // CONFETTI
+        // ============================================================
         function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                confetti.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
-                document.body.appendChild(confetti);
-                
-                setTimeout(() => confetti.remove(), 3000);
+            const colors = ['#8b5cf6','#3b82f6','#ec4899','#f59e0b','#10b981','#ef4444'];
+            for (let i = 0; i < 80; i++) {
+                const el = document.createElement('div');
+                el.className = 'confetti-piece';
+                el.style.left = (Math.random() * 100) + 'vw';
+                el.style.animationDelay = (Math.random() * 2) + 's';
+                el.style.animationDuration = (2 + Math.random() * 2) + 's';
+                el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                el.style.width = (6 + Math.random() * 10) + 'px';
+                el.style.height = (6 + Math.random() * 10) + 'px';
+                el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 5000);
             }
         }
 
-        // Save study plan
+        // ============================================================
+        // SAVE / DOWNLOAD
+        // ============================================================
         function saveStudyPlan() {
-            const studyPlan = {
+            const plan = {
                 date: new Date().toISOString(),
                 level: document.getElementById('userLevel').textContent,
-                // Add more data as needed
+                answers: answers.map((a, i) => ({
+                    question: questions[i].question,
+                    answer: a !== null ? questions[i].options[a] : null
+                })),
+                aiPlan: savedPlanText
             };
-            
-            localStorage.setItem('savedStudyPlan', JSON.stringify(studyPlan));
-            showNotification('Study plan saved successfully!', 'success');
+            localStorage.setItem('sajida_study_plan', JSON.stringify(plan));
+            showNotification('✅ study plan saved to your browser!', 'success');
         }
 
-        // Download plan as PDF (simulation)
         function downloadPlan() {
-            showNotification('Downloading your study plan...', 'success');
+            const level = document.getElementById('userLevel').textContent;
+            const date = new Date().toLocaleDateString();
+            const answersSection = answers.map((a, i) =>
+                a !== null ? `Q${i+1}: ${questions[i].question}\nA: ${questions[i].options[a]}` : ''
+            ).filter(Boolean).join('\n\n');
+
+            const content = `SAJIDA KHAN DEV LAB — AI LEARNING PLAN
+Generated: ${date}
+Level: ${level}
+Powered by: Gemma 3 (google/gemma-3-12b-it)
+
+${'='.repeat(50)}
+
+YOUR ASSESSMENT ANSWERS:
+${'='.repeat(50)}
+${answersSection}
+
+${'='.repeat(50)}
+
+YOUR AI-GENERATED STUDY PLAN:
+${'='.repeat(50)}
+${savedPlanText || 'complete the assessment to see your full ai plan!'}
+
+${'='.repeat(50)}
+Visit: Sajida Khan Dev Lab | sajidakhan.devlab
+`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `sajida-devlab-study-plan-${Date.now()}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showNotification('📄 downloading your plan!', 'success');
         }
 
-        // Close modal
+        // ============================================================
+        // MODAL
+        // ============================================================
         function closeModal() {
             document.getElementById('resultsModal').classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
-        // Notification system
+        // ============================================================
+        // PARTICLES
+        // ============================================================
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = (Math.random() * 100) + '%';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                p.style.animationDuration = (10 + Math.random() * 20) + 's';
+                container.appendChild(p);
+            }
+        }
+
+        // ============================================================
+        // NAVBAR SCROLL
+        // ============================================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+        window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('bg-black/50', window.scrollY > 50); });
+
+        // ============================================================
+        // NOTIFICATION
+        // ============================================================
         function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-20 right-4 z-50 px-6 py-3 rounded-xl ${
-                type === 'success' ? 'bg-green-600' : type === 'error' ? 'bg-red-600' : 'bg-yellow-600'
-            } text-white shadow-lg animate-pulse flex items-center gap-2`;
-            
-            const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-exclamation-triangle';
-            notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
+            const n = document.createElement('div');
+            const colors = { success: 'bg-green-600', error: 'bg-red-600', warning: 'bg-yellow-600' };
+            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle' };
+            n.className = `fixed top-20 right-4 z-[200] px-6 py-3 rounded-xl ${colors[type]||'bg-gray-600'} text-white shadow-lg flex items-center gap-2 transition-all`;
+            n.innerHTML = `<i class="fas ${icons[type]||'fa-info-circle'}"></i> ${message}`;
+            document.body.appendChild(n);
+            setTimeout(() => { n.style.opacity = '0'; setTimeout(() => n.remove(), 300); }, 3500);
         }
 
-        // Initialize on load
+        // ============================================================
+        // START
+        // ============================================================
         window.onload = init;
     </script>
 </body>
