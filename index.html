@@ -405,24 +405,29 @@
     <main class="relative z-10 pt-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Optional custom API key override (collapsed by default) -->
+            <!-- API Key Section -->
             <div class="mb-8">
                 <details class="glass p-4 rounded-xl">
                     <summary class="cursor-pointer text-sm text-gray-400 hover:text-white transition flex items-center gap-2">
                         <i class="fas fa-key text-purple-400"></i>
-                        <span>✅ built-in openrouter key active (gemma 3) — click to use your own key instead (optional)</span>
+                        <span id="keyStatus"><i class="fas fa-circle text-green-400 mr-1 animate-pulse"></i>built-in gemma 3 key active</span>
+                        <span class="ml-auto text-xs opacity-60">click to manage key</span>
                     </summary>
-                    <div class="mt-4 flex flex-col md:flex-row items-center gap-4">
-                        <div class="flex-1 w-full">
-                            <label class="block text-sm font-medium text-gray-300 mb-2">your custom OpenRouter API Key (optional override)</label>
-                            <input type="password" id="apiKey" placeholder="paste your key here to override built-in key" class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500">
+                    <div class="mt-4 space-y-3">
+                        <p class="text-xs text-gray-400">
+                            <i class="fas fa-info-circle text-blue-400 mr-1"></i>
+                            using google gemma 3 via openrouter (free). if the key stops working, get a new one at
+                            <a href="https://openrouter.ai/keys/app/apikey" target="_blank" class="text-purple-400 underline hover:text-purple-300">openrouter.ai/keys</a>
+                        </p>
+                        <div class="flex flex-col md:flex-row items-center gap-3">
+                            <input type="password" id="apiKey" placeholder="paste your OpenRouter key here (sk-or-v1-...)" class="flex-1 w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 text-sm" onkeydown="if(event.key==='Enter') saveApiKey()">
+                            <button onclick="saveApiKey()" class="px-5 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition whitespace-nowrap text-sm">
+                                <i class="fas fa-save mr-1"></i>save key
+                            </button>
+                            <button onclick="resetApiKey()" class="px-5 py-2 bg-white/10 text-gray-300 rounded-lg font-semibold hover:bg-white/20 transition whitespace-nowrap text-sm">
+                                reset
+                            </button>
                         </div>
-                        <button onclick="saveApiKey()" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition whitespace-nowrap">
-                            <i class="fas fa-save mr-2"></i>use this key
-                        </button>
-                        <button onclick="resetApiKey()" class="px-6 py-2 bg-white/10 text-gray-300 rounded-lg font-semibold hover:bg-white/20 transition whitespace-nowrap">
-                            reset to built-in
-                        </button>
                     </div>
                 </details>
             </div>
@@ -820,30 +825,34 @@ for i in range(10):
 
     <script>
         // ============================================================
-        // OPENROUTER — Gemma 3 12B (free) — production ready!
+        // AI CONFIG — OpenRouter · Gemma 3 12B (free)
+        // get a free key at: https://openrouter.ai/keys
         // ============================================================
-        const OR_KEY = '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';
+        const OR_KEY = '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';
         const OR_MODEL = 'google/gemma-3-12b-it:free';
         const OR_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
-        // Optional: override with custom key
-        let customKey = localStorage.getItem('or_custom_key') || '';
+        // User can paste their own key in the input box
+        let customKey = localStorage.getItem('sk_api_key') || '';
+        function activeKey() { return customKey || OR_KEY; }
 
         function saveApiKey() {
             const key = document.getElementById('apiKey').value.trim();
             if (key) {
                 customKey = key;
-                localStorage.setItem('or_custom_key', key);
-                showNotification('✅ custom key saved!', 'success');
+                localStorage.setItem('sk_api_key', key);
+                document.getElementById('keyStatus').innerHTML = '<i class="fas fa-check-circle text-green-400 mr-1"></i>using your key';
+                showNotification('✅ key saved!', 'success');
             } else {
-                showNotification('please enter a key first! (ﾉ◕ヮ◕)ﾉ', 'error');
+                showNotification('paste a key first! (ﾉ◕ヮ◕)ﾉ', 'error');
             }
         }
 
         function resetApiKey() {
             customKey = '';
-            localStorage.removeItem('or_custom_key');
+            localStorage.removeItem('sk_api_key');
             document.getElementById('apiKey').value = '';
+            document.getElementById('keyStatus').innerHTML = '<i class="fas fa-circle text-green-400 mr-1 animate-pulse"></i>built-in key active';
             showNotification('🔑 reset to built-in key!', 'success');
         }
 
@@ -854,22 +863,34 @@ for i in range(10):
             const messages = [];
             if (systemPrompt) messages.push({ role: 'system', content: systemPrompt });
             messages.push({ role: 'user', content: userPrompt });
+
             const res = await fetch(OR_URL, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${customKey || OR_KEY}`,
+                    'Authorization': ,
                     'Content-Type': 'application/json',
                     'HTTP-Referer': 'https://sajidakhan.devlab',
                     'X-Title': 'Sajida Khan Dev Lab'
                 },
                 body: JSON.stringify({ model: OR_MODEL, messages, max_tokens: 1500, temperature: 0.7 })
             });
+
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
-                throw new Error(err?.error?.message || `openrouter error ${res.status}`);
+                const msg = err?.error?.message || ;
+                if (res.status === 401 || res.status === 403 || msg.toLowerCase().includes('user') || msg.toLowerCase().includes('key')) {
+                    showKeyError();
+                }
+                throw new Error(msg);
             }
             const data = await res.json();
             return data.choices?.[0]?.message?.content || 'no response received';
+        }
+
+        function showKeyError() {
+            const det = document.querySelector('details.glass');
+            if (det) det.open = true;
+            showNotification('⚠️ api key issue — paste a fresh openrouter key above!', 'error');
         }
 
         // ============================================================
