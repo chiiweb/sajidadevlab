@@ -1,40 +1,33 @@
 /**
  * Sajida Khan Dev Lab — AI Proxy Worker
- * Deploy to Cloudflare Workers (free tier)
- * 
- * Setup:
- *   1. Go to https://workers.cloudflare.com and sign up (free)
- *   2. Create a new Worker, paste this file
- *   3. Go to Settings → Variables → add Secret:
- *        Name:  OPENROUTER_KEY
- *        Value: sk-or-v1-... (your openrouter key)
- *   4. Deploy — you'll get a URL like https://sk-proxy.YOUR-NAME.workers.dev
- *   5. Put that URL in config.js as PROXY_URL
+ * Updated to support GET and POST
  */
 
-const ALLOWED_ORIGINS = [
-  // add your github pages URL here, e.g.:
-  // 'https://yourusername.github.io',
-  // also works with any origin during local dev:
-];
-
 const MODEL = 'google/gemma-3-12b-it:free';
+const API_KEY = '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';
 
 export default {
   async fetch(request, env) {
-    const origin = request.headers.get('Origin') || '';
+    const origin = request.headers.get('Origin') || '*';
 
-    // CORS preflight
+    // handle cors preflight
     if (request.method === 'OPTIONS') {
       return corsResponse(null, 204, origin);
     }
 
-    // only POST allowed
+    // handle GET requests (for testing or simple pings)
+    if (request.method === 'GET') {
+      return corsResponse(JSON.stringify({ 
+        status: 'online', 
+        message: 'worker is active. use POST to send messages.' 
+      }), 200, origin);
+    }
+
+    // only allow POST for actual api calls
     if (request.method !== 'POST') {
       return corsResponse(JSON.stringify({ error: 'method not allowed' }), 405, origin);
     }
 
-    // parse body
     let body;
     try {
       body = await request.json();
@@ -48,11 +41,11 @@ export default {
       return corsResponse(JSON.stringify({ error: 'messages array required' }), 400, origin);
     }
 
-    // call openrouter with the secret key (never exposed to browser)
+    // use the provided api key directly
     const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.OPENROUTER_KEY}`,
+        'Authorization': `Bearer ${API_KEY}`,
         'Content-Type': 'application/json',
         'HTTP-Referer': 'https://sajidakhan.devlab',
         'X-Title': 'Sajida Khan Dev Lab',
@@ -73,9 +66,9 @@ export default {
 function corsResponse(body, status, origin) {
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   };
   return new Response(body, { status, headers });
 }
