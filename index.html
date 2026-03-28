@@ -355,6 +355,8 @@
         </div>
     </div>
 
+
+
     <!-- Particle Background -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
 
@@ -405,31 +407,28 @@
     <main class="relative z-10 pt-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- API Key Section -->
-            <div class="mb-8">
-                <details class="glass p-4 rounded-xl">
-                    <summary class="cursor-pointer text-sm text-gray-400 hover:text-white transition flex items-center gap-2">
-                        <i class="fas fa-key text-purple-400"></i>
-                        <span id="keyStatus"><i class="fas fa-circle text-green-400 mr-1 animate-pulse"></i>built-in gemma 3 key active</span>
-                        <span class="ml-auto text-xs opacity-60">click to manage key</span>
-                    </summary>
-                    <div class="mt-4 space-y-3">
-                        <p class="text-xs text-gray-400">
-                            <i class="fas fa-info-circle text-blue-400 mr-1"></i>
-                            using google gemma 3 via openrouter (free). if the key stops working, get a new one at
-                            <a href="https://openrouter.ai/keys/app/apikey" target="_blank" class="text-purple-400 underline hover:text-purple-300">openrouter.ai/keys</a>
-                        </p>
-                        <div class="flex flex-col md:flex-row items-center gap-3">
-                            <input type="password" id="apiKey" placeholder="paste your OpenRouter key here (sk-or-v1-...)" class="flex-1 w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 text-sm" onkeydown="if(event.key==='Enter') saveApiKey()">
-                            <button onclick="saveApiKey()" class="px-5 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition whitespace-nowrap text-sm">
-                                <i class="fas fa-save mr-1"></i>save key
-                            </button>
-                            <button onclick="resetApiKey()" class="px-5 py-2 bg-white/10 text-gray-300 rounded-lg font-semibold hover:bg-white/20 transition whitespace-nowrap text-sm">
-                                reset
-                            </button>
+
+
+            <!-- Proxy setup banner — hidden until needed -->
+            <div id="proxyBanner" class="mb-6 hidden">
+                <div class="glass rounded-xl p-5 border border-yellow-500/30 flex flex-wrap items-start gap-4">
+                    <i class="fas fa-triangle-exclamation text-yellow-400 text-xl mt-0.5 flex-shrink-0"></i>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-white font-semibold text-sm mb-1">ai proxy not configured yet!</p>
+                        <p class="text-gray-400 text-xs mb-3">edit <code class="text-purple-400 bg-white/5 px-1 rounded">config.js</code> and set your cloudflare worker url. takes ~5 mins, totally free!</p>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://workers.cloudflare.com" target="_blank" class="px-3 py-1.5 bg-purple-600/30 border border-purple-500/40 text-purple-300 rounded-lg text-xs hover:bg-purple-600/50 transition">
+                                <i class="fas fa-cloud mr-1"></i>cloudflare workers (free)
+                            </a>
+                            <a href="https://openrouter.ai/keys" target="_blank" class="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 rounded-lg text-xs hover:bg-white/10 transition">
+                                <i class="fas fa-key mr-1"></i>get openrouter key
+                            </a>
                         </div>
                     </div>
-                </details>
+                    <button onclick="document.getElementById('proxyBanner').classList.add('hidden')" class="text-gray-600 hover:text-gray-400 transition text-sm flex-shrink-0">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Hero Section -->
@@ -518,19 +517,8 @@
                             </div>
                         </div>
                         <div class="code-editor editor-wrap">
-                            <div class="line-nums" id="lineNums">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12</div>
-                            <textarea id="codeEditor" rows="12" class="w-full bg-transparent text-gray-300 font-mono text-sm p-4 border-none focus:outline-none resize-none" placeholder="# Write your code here...">def fibonacci(n):
+                            <div class="line-nums" id="lineNums"></div>
+                            <textarea id="codeEditor" rows="12" class="bg-transparent text-gray-300 font-mono text-sm p-4 border-none focus:outline-none resize-none" style="flex:1;min-width:0" placeholder="# Write your code here...">def fibonacci(n):
     """Calculate fibonacci sequence"""
     if n <= 1:
         return n
@@ -823,180 +811,43 @@ for i in range(10):
         </button>
     </div>
 
+    <script src="config.js"></script>
     <script>
         // ============================================================
-        // AI CONFIG — OpenRouter · Gemma 3 12B (free)
-        // get a free key at: https://openrouter.ai/keys
-        // ============================================================
-        const OR_KEY = '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';
-        const OR_MODEL = 'google/gemma-3-12b-it:free';
-        const OR_URL = 'https://openrouter.ai/api/v1/chat/completions';
-
-        // User can paste their own key in the input box
-        let customKey = localStorage.getItem('sk_api_key') || '';
-        function activeKey() { return customKey || OR_KEY; }
-
-        function saveApiKey() {
-            const key = document.getElementById('apiKey').value.trim();
-            if (key) {
-                customKey = key;
-                localStorage.setItem('sk_api_key', key);
-                document.getElementById('keyStatus').innerHTML = '<i class="fas fa-check-circle text-green-400 mr-1"></i>using your key';
-                showNotification('✅ key saved!', 'success');
-            } else {
-                showNotification('paste a key first! (ﾉ◕ヮ◕)ﾉ', 'error');
-            }
-        }
-
-        function resetApiKey() {
-            customKey = '';
-            localStorage.removeItem('sk_api_key');
-            document.getElementById('apiKey').value = '';
-            document.getElementById('keyStatus').innerHTML = '<i class="fas fa-circle text-green-400 mr-1 animate-pulse"></i>built-in key active';
-            showNotification('🔑 reset to built-in key!', 'success');
-        }
-
-        // ============================================================
-        // OPENROUTER API CALL — used everywhere
+        // AI — all calls go through the Cloudflare Worker proxy
+        // Key lives in the worker's env vars — never in this file!
         // ============================================================
         async function callGemini(userPrompt, systemPrompt = '') {
+            const cfg = (typeof SKDL_CONFIG !== 'undefined') ? SKDL_CONFIG : {};
+            const proxyUrl = cfg.PROXY_URL || '';
+
+            if (!proxyUrl || proxyUrl.includes('yourname')) {
+                document.getElementById('proxyBanner')?.classList.remove('hidden');
+                throw new Error('proxy url not set — edit config.js');
+            }
+
             const messages = [];
             if (systemPrompt) messages.push({ role: 'system', content: systemPrompt });
             messages.push({ role: 'user', content: userPrompt });
 
-            const res = await fetch(OR_URL, {
+            const res = await fetch(proxyUrl, {
                 method: 'POST',
-                headers: {
-                    'Authorization': ,
-                    'Content-Type': 'application/json',
-                    'HTTP-Referer': 'https://sajidakhan.devlab',
-                    'X-Title': 'Sajida Khan Dev Lab'
-                },
-                body: JSON.stringify({ model: OR_MODEL, messages, max_tokens: 1500, temperature: 0.7 })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages,
+                    max_tokens:  cfg.MAX_TOKENS  || 1500,
+                    temperature: cfg.TEMPERATURE || 0.7,
+                })
             });
 
             if (!res.ok) {
-                const err = await res.json().catch(() => ({}));
-                const msg = err?.error?.message || ;
-                if (res.status === 401 || res.status === 403 || msg.toLowerCase().includes('user') || msg.toLowerCase().includes('key')) {
-                    showKeyError();
-                }
-                throw new Error(msg);
+                const e2 = await res.json().catch(() => ({}));
+                throw new Error(e2?.error || 'proxy error ' + res.status);
             }
             const data = await res.json();
             return data.choices?.[0]?.message?.content || 'no response received';
         }
 
-        function showKeyError() {
-            const det = document.querySelector('details.glass');
-            if (det) det.open = true;
-            showNotification('⚠️ api key issue — paste a fresh openrouter key above!', 'error');
-        }
-
-        // ============================================================
-        // THEME SYSTEM — 5 themes, persisted, keyboard shortcut
-        // ============================================================
-        const THEMES = ['dark','light','synthwave','forest','ocean'];
-        let currentTheme = localStorage.getItem('sk_theme') || 'dark';
-
-        function setTheme(name) {
-            // Remove all theme classes
-            THEMES.forEach(t => document.body.classList.remove('theme-' + t));
-            document.body.classList.add('theme-' + name);
-            currentTheme = name;
-            localStorage.setItem('sk_theme', name);
-            // Update active state in dropdown
-            document.querySelectorAll('.theme-option').forEach(el => {
-                el.classList.toggle('active', el.dataset.theme === name);
-            });
-            // Update particle color per theme
-            updateParticleColor(name);
-            closeThemeDropdown();
-        }
-
-        function updateParticleColor(theme) {
-            const colors = {
-                dark: 'rgba(255,255,255,0.15)',
-                light: 'rgba(147,51,234,0.2)',
-                synthwave: 'rgba(255,0,255,0.25)',
-                forest: 'rgba(34,197,94,0.2)',
-                ocean: 'rgba(6,182,212,0.2)'
-            };
-            document.querySelectorAll('.particle').forEach(p => p.style.background = colors[theme] || colors.dark);
-        }
-
-        function toggleThemeDropdown() {
-            document.getElementById('themeDropdown').classList.toggle('open');
-        }
-        function closeThemeDropdown() {
-            document.getElementById('themeDropdown').classList.remove('open');
-        }
-
-        // Close dropdown on outside click
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('#themePicker')) closeThemeDropdown();
-        });
-
-        // T key cycles themes
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 't' && !e.target.matches('input,textarea,select')) {
-                const idx = (THEMES.indexOf(currentTheme) + 1) % THEMES.length;
-                setTheme(THEMES[idx]);
-                showNotification('theme: ' + THEMES[idx] + ' ✨', 'success');
-            }
-        });
-
-        // Apply saved theme on load
-        setTheme(currentTheme);
-
-        // ============================================================
-        // SCROLL REVEAL
-        // ============================================================
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08 });
-
-        function initReveal() {
-            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-        }
-
-        // ============================================================
-        // SCROLL-TO-TOP BUTTON
-        // ============================================================
-        window.addEventListener('scroll', () => {
-            document.getElementById('scrollTopBtn').classList.toggle('show', window.scrollY > 400);
-            document.getElementById('navbar').classList.toggle('bg-black/50', window.scrollY > 50);
-        });
-
-        // ============================================================
-        // LIVE XP TICKER — counts up slowly
-        // ============================================================
-        function startXPTicker() {
-            const el = document.getElementById('xpTicker');
-            if (!el) return;
-            let val = 146000;
-            setInterval(() => {
-                val += Math.floor(Math.random() * 8) + 1;
-                el.textContent = val.toLocaleString();
-            }, 3000);
-        }
-
-        // ============================================================
-        // LINE NUMBERS — synced with textarea
-        // ============================================================
-        function updateLineNumbers() {
-            const ta = document.getElementById('codeEditor');
-            const ln = document.getElementById('lineNums');
-            if (!ta || !ln) return;
-            const lines = ta.value.split('\n').length;
-            ln.textContent = Array.from({length: lines}, (_,i) => i+1).join('\n');
-            ln.scrollTop = ta.scrollTop;
-        }
 
         // ============================================================
         // HOW IT WORKS MODAL
@@ -1032,6 +883,9 @@ for i in range(10):
         // ============================================================
         // PARTICLES
         // ============================================================
+        // ============================================================
+        // PARTICLES
+        // ============================================================
         function createParticles() {
             const container = document.getElementById('particles');
             for (let i = 0; i < 50; i++) {
@@ -1043,13 +897,78 @@ for i in range(10):
                 container.appendChild(p);
             }
         }
+
+        // ============================================================
+        // SCROLL REVEAL
+        // ============================================================
+        function initReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // ============================================================
+        // SCROLL-TO-TOP + NAVBAR SCROLL
+        // ============================================================
+        window.addEventListener('scroll', () => {
+            document.getElementById('scrollTopBtn')?.classList.toggle('show', window.scrollY > 400);
+            document.getElementById('navbar')?.classList.toggle('bg-black/50', window.scrollY > 50);
+        });
+
+        // ============================================================
+        // LIVE XP TICKER
+        // ============================================================
+        function startXPTicker() {
+            const el = document.getElementById('xpTicker');
+            if (!el) return;
+            let val = 146000;
+            setInterval(() => {
+                val += Math.floor(Math.random() * 8) + 1;
+                el.textContent = val.toLocaleString();
+            }, 3000);
+        }
+
+        // ============================================================
+        // CODE EDITOR LINE NUMBERS
+        // ============================================================
+        function updateLineNumbers() {
+            const ta = document.getElementById('codeEditor');
+            const ln = document.getElementById('lineNums');
+            if (!ta || !ln) return;
+            const count = ta.value.split('\n').length;
+            ln.textContent = Array.from({ length: count }, (_, i) => i + 1).join('\n');
+            ln.scrollTop = ta.scrollTop;
+        }
+
+        // ============================================================
+        // KEY HELPERS
+        // ============================================================
+
+        // ============================================================
+        // INIT — run everything on load
+        // ============================================================
         createParticles();
         initReveal();
         startXPTicker();
 
-        // Hook up line numbers to textarea
+        // wire up line numbers
         const _codeEd = document.getElementById('codeEditor');
         if (_codeEd) {
+            // set initial default code
+            _codeEd.value = `def fibonacci(n):
+    """Calculate fibonacci sequence"""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+for i in range(10):
+    print(f"fib({i}) = {fibonacci(i)}")`;
             _codeEd.addEventListener('input', updateLineNumbers);
             _codeEd.addEventListener('scroll', () => {
                 const ln = document.getElementById('lineNums');
@@ -1057,8 +976,6 @@ for i in range(10):
             });
             updateLineNumbers();
         }
-
-        // navbar scroll handled in scroll-to-top listener above
 
         // ============================================================
         // MOBILE MENU
@@ -1115,13 +1032,20 @@ for i in range(10):
                 messages.removeChild(typingDiv);
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'bg-white/5 rounded-lg p-3 mb-3';
-                aiDiv.innerHTML = `<p class="text-sm text-gray-300 ai-bubble">${reply}</p>`;
+                const aiP = document.createElement('p');
+                aiP.className = 'text-sm text-gray-300 ai-bubble';
+                aiP.style.whiteSpace = 'pre-wrap';
+                aiP.textContent = reply;
+                aiDiv.appendChild(aiP);
                 messages.appendChild(aiDiv);
             } catch (err) {
                 messages.removeChild(typingDiv);
                 const errDiv = document.createElement('div');
                 errDiv.className = 'bg-red-900/20 border border-red-500/30 rounded-lg p-3 mb-3';
-                errDiv.innerHTML = `<p class="text-sm text-red-300">⚠️ ${err.message}</p>`;
+                const errP2 = document.createElement('p');
+                errP2.className = 'text-sm text-red-300';
+                errP2.textContent = '⚠️ ' + err.message;
+                errDiv.appendChild(errP2);
                 messages.appendChild(errDiv);
             }
             messages.scrollTop = messages.scrollHeight;
@@ -1304,7 +1228,8 @@ Requirements:
                 );
                 output.textContent = reply;
             } catch (err) {
-                output.innerHTML = `<span class="text-red-400">⚠️ ${err.message}</span>`;
+                output.textContent = '⚠️ ' + err.message;
+                output.style.color = '#f87171';
             }
         }
 
@@ -1378,15 +1303,34 @@ Requirements:
 
         function appendToAI(container, type, text) {
             const div = document.createElement('div');
+            const mkIcon = (bg, icon) => {
+                const d = document.createElement('div');
+                d.className = `w-8 h-8 rounded-full ${bg} flex items-center justify-center flex-shrink-0`;
+                d.innerHTML = `<i class="fas ${icon} text-sm"></i>`;
+                return d;
+            };
+            const mkBubble = (bgClass, borderClass, textClass, content, pre) => {
+                const d = document.createElement('div');
+                d.className = `flex-1 ${bgClass} ${borderClass} rounded-lg p-3`;
+                const p = document.createElement('p');
+                p.className = `text-sm ${textClass}`;
+                if (pre) p.style.whiteSpace = 'pre-wrap';
+                p.textContent = content;
+                d.appendChild(p);
+                return d;
+            };
             if (type === 'user') {
                 div.className = 'flex items-start gap-3 justify-end mb-4';
-                div.innerHTML = `<div class="bg-purple-600/30 rounded-lg p-3 max-w-[80%]"><p class="text-sm text-white">${text}</p></div><div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0"><i class="fas fa-user text-sm"></i></div>`;
+                div.appendChild(mkBubble('bg-purple-600/30','','text-white', text, false));
+                div.appendChild(mkIcon('bg-purple-600','fa-user'));
             } else if (type === 'ai') {
                 div.className = 'flex items-start gap-3 mb-4';
-                div.innerHTML = `<div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-sm"></i></div><div class="flex-1 bg-white/5 rounded-lg p-3"><p class="text-sm text-gray-300 ai-response">${text}</p></div>`;
+                div.appendChild(mkIcon('bg-purple-600','fa-robot'));
+                div.appendChild(mkBubble('bg-white/5','','text-gray-300', text, true));
             } else {
                 div.className = 'flex items-start gap-3 mb-4';
-                div.innerHTML = `<div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center flex-shrink-0"><i class="fas fa-exclamation text-sm"></i></div><div class="flex-1 bg-red-900/20 border border-red-500/20 rounded-lg p-3"><p class="text-sm text-red-300">${text}</p></div>`;
+                div.appendChild(mkIcon('bg-red-600','fa-exclamation'));
+                div.appendChild(mkBubble('bg-red-900/20','border border-red-500/20','text-red-300', text, false));
             }
             container.appendChild(div);
             container.scrollTop = container.scrollHeight;
