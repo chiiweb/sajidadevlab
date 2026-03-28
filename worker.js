@@ -1,8 +1,16 @@
-const API_KEY = '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';
 const MODEL = 'google/gemma-3-12b-it:free';
 
 export default {
   async fetch(request, env) {
+    // Get API key from environment variable (never hardcode!)
+    const API_KEY = env.OPENROUTER_KEY;
+    if (!API_KEY) {
+      return new Response(JSON.stringify({ error: 'OPENROUTER_KEY not configured' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
     // we must define the allowed origin clearly
     const origin = "https://chiiweb.github.io";
 
@@ -48,6 +56,19 @@ export default {
         });
 
         const data = await res.json();
+        
+        // Check if OpenRouter returned an error
+        if (!res.ok || data.error) {
+          return new Response(JSON.stringify({ error: data.error?.message || `OpenRouter API error: ${res.status}` }), {
+            status: res.status || 400,
+            headers: { 
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': origin 
+            },
+          });
+        }
+        
+        // Success response
         return new Response(JSON.stringify(data), {
           status: 200,
           headers: { 
@@ -57,8 +78,11 @@ export default {
         });
       } catch (e) {
         return new Response(JSON.stringify({ error: e.message }), { 
-          status: 500, 
-          headers: { 'Access-Control-Allow-Origin': origin } 
+          status: 500,
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': origin 
+          }
         });
       }
     }
