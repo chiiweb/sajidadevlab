@@ -21,6 +21,9 @@ const SKDL_CONFIG = {
   MODEL: 'google/gemma-3-12b-it:free',
   MAX_TOKENS: 1500,
   TEMPERATURE: 0.7,
+  
+  // Timeout in ms for fetch calls
+  FETCH_TIMEOUT: 30000,
 };
 
 // freeze so nothing can accidentally overwrite it
