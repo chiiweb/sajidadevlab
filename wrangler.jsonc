@@ -10,5 +10,12 @@
   },
   "compatibility_flags": [
     "nodejs_compat"
-  ]
+  ],
+  "env": {
+    "production": {
+      "vars": {
+        "ENVIRONMENT": "production"
+      }
+    }
+  }
 }
