@@ -52,6 +52,8 @@ export default {
           body: JSON.stringify({
             model: MODEL,
             messages: body.messages,
+            max_tokens: body.max_tokens || 1500,
+            temperature: body.temperature !== undefined ? body.temperature : 0.7,
           }),
         });
 
