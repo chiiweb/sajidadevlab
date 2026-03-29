@@ -15,7 +15,7 @@
 const SKDL_CONFIG = {
   // ← paste your Cloudflare Worker URL here (no trailing slash)
   // example: 'https://sk-proxy.yourname.workers.dev'
-  PROXY_URL: 'https://sajidadevlab.404hadia.workers.dev',
+  PROXY_URL: 'https://sajidadevlab.netlify.app/.netlify/functions/ai-proxy',
 
   // model settings (worker handles the actual key — safe!)
   MODEL: 'google/gemma-3-12b-it:free',
