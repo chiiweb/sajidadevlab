@@ -237,6 +237,52 @@
         }
         body.theme-ocean nav { border-bottom: 1px solid rgba(56,189,248,0.15) !important; }
 
+        /* ══ SUNSET — Warm Dusk ══ */
+        body.theme-sunset {
+            --bg: #0f0a00; --surface: rgba(251,146,60,0.07); --surface-hover: rgba(251,146,60,0.13);
+            --border: rgba(251,146,60,0.2); --text: #fff7ed; --text-muted: #fcd34d;
+            --accent: #f97316; --accent2: #ec4899; --glow: rgba(249,115,22,0.35);
+            --nav-bg: rgba(15,10,0,0.9); --card-hover-border: rgba(249,115,22,0.7);
+            --input-bg: rgba(249,115,22,0.08); --input-border: rgba(251,146,60,0.3); --code-bg: rgba(20,10,0,0.7);
+            background: radial-gradient(ellipse at 70% 0%, rgba(236,72,153,0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 100%, rgba(249,115,22,0.2) 0%, transparent 50%),
+                linear-gradient(180deg, #0f0a00, #1a0f00, #0f0a00); color: #fff7ed;
+        }
+        body.theme-sunset .glass { background: rgba(25,12,0,0.75); border-color: rgba(249,115,22,0.3); box-shadow: 0 8px 32px rgba(249,115,22,0.12); }
+        body.theme-sunset .glass-card { background: rgba(20,10,0,0.65); border-color: rgba(249,115,22,0.15); }
+        body.theme-sunset .glass-card:hover { background: rgba(30,15,0,0.8); border-color: rgba(249,115,22,0.55); box-shadow: 0 16px 48px rgba(249,115,22,0.2); }
+        body.theme-sunset nav { border-bottom: 1px solid rgba(249,115,22,0.2) !important; }
+
+        /* ══ MIDNIGHT — Pure Black ══ */
+        body.theme-midnight {
+            --bg: #000; --surface: rgba(255,255,255,0.03); --surface-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.06); --text: #e8e8e8; --text-muted: #666;
+            --accent: #fff; --accent2: #aaa; --glow: rgba(255,255,255,0.06);
+            --nav-bg: rgba(8,8,8,0.98); --card-hover-border: rgba(255,255,255,0.2);
+            --input-bg: rgba(255,255,255,0.04); --input-border: rgba(255,255,255,0.08); --code-bg: rgba(0,0,0,0.8);
+            background: #000; color: #e8e8e8;
+        }
+        body.theme-midnight .glass { background: rgba(12,12,12,0.95); border-color: rgba(255,255,255,0.06); box-shadow: 0 8px 32px rgba(0,0,0,0.9); }
+        body.theme-midnight .glass-card { background: rgba(10,10,10,0.95); border-color: rgba(255,255,255,0.05); }
+        body.theme-midnight .glass-card:hover { border-color: rgba(255,255,255,0.18); box-shadow: 0 16px 48px rgba(255,255,255,0.04); }
+        body.theme-midnight nav { border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+
+        /* ══ CANDY — Sweet Pink Purple ══ */
+        body.theme-candy {
+            --bg: #1a0028; --surface: rgba(255,105,180,0.08); --surface-hover: rgba(255,105,180,0.14);
+            --border: rgba(255,105,180,0.25); --text: #fff0fa; --text-muted: #ffb3e6;
+            --accent: #ff69b4; --accent2: #bf5fff; --glow: rgba(255,105,180,0.4);
+            --nav-bg: rgba(15,0,25,0.9); --card-hover-border: rgba(255,105,180,0.7);
+            --input-bg: rgba(255,105,180,0.08); --input-border: rgba(255,105,180,0.3); --code-bg: rgba(20,0,30,0.7);
+            background: radial-gradient(ellipse at 30% 20%, rgba(191,95,255,0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(255,105,180,0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #1a0028, #2d0040, #1a0028); color: #fff0fa;
+        }
+        body.theme-candy .glass { background: rgba(35,0,55,0.75); border-color: rgba(255,105,180,0.3); box-shadow: 0 0 25px rgba(255,105,180,0.15); }
+        body.theme-candy .glass-card { background: rgba(28,0,42,0.65); border-color: rgba(255,105,180,0.18); }
+        body.theme-candy .glass-card:hover { border-color: rgba(255,105,180,0.6); box-shadow: 0 0 30px rgba(255,105,180,0.25); }
+        body.theme-candy nav { border-bottom: 1px solid rgba(255,105,180,0.2) !important; }
+
         /* ── Base overrides (all themes) ─────────────────────────────── */
 
         body { background: var(--bg); color: var(--text); transition: background 0.4s, color 0.3s; }
@@ -422,6 +468,15 @@
             <button class="theme-option" data-theme="ocean" onclick="setTheme('ocean')">
                 <span class="theme-swatch" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9)"></span> 🌊 ocean
             </button>
+            <button class="theme-option" data-theme="sunset" onclick="setTheme('sunset')">
+                <span class="theme-swatch" style="background:linear-gradient(135deg,#f97316,#ec4899)"></span> 🌅 sunset
+            </button>
+            <button class="theme-option" data-theme="midnight" onclick="setTheme('midnight')">
+                <span class="theme-swatch" style="background:#111"></span> 🖤 midnight
+            </button>
+            <button class="theme-option" data-theme="candy" onclick="setTheme('candy')">
+                <span class="theme-swatch" style="background:linear-gradient(135deg,#ff69b4,#bf5fff)"></span> 🍬 candy
+            </button>
             <div style="border-top:1px solid rgba(255,255,255,0.07);margin-top:6px;padding-top:6px;text-align:center">
                 <span class="kbd">T</span> <span style="font-size:0.7rem;color:#6b7280">cycle themes</span>
             </div>
@@ -515,6 +570,7 @@
                     <a href="#ai-path" class="text-gray-300 hover:text-white transition">AI path</a>
                     <a href="#devlab" class="text-gray-300 hover:text-white transition">Dev Lab</a>
                     <a href="#community" class="text-gray-300 hover:text-white transition">Community</a>
+                    <a href="dashboard.html" class="text-gray-300 hover:text-white transition">📊 Dashboard</a>
                     <button class="px-4 py-2 border border-purple-500/30 rounded-full text-sm font-semibold text-purple-400 hover:bg-purple-500/10 transition">
                         <i class="fas fa-globe mr-2"></i>🌐 EN
                     </button>
@@ -1500,7 +1556,7 @@ Requirements:
         // ============================================================
         // THEME SYSTEM
         // ============================================================
-        const THEMES = ['dark','light','synthwave','forest','ocean'];
+        const THEMES = ['dark','light','synthwave','forest','ocean','sunset','midnight','candy'];
         let currentTheme = localStorage.getItem('sk_theme') || 'dark';
 
         function setTheme(name) {
