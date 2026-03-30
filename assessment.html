@@ -146,6 +146,33 @@
         body.theme-ocean .option-btn { border-color:rgba(56,189,248,0.18); }
         body.theme-ocean .option-btn:hover { border-color:rgba(56,189,248,0.5);background:rgba(14,165,233,0.1); }
         body.theme-ocean .option-btn.selected { background:rgba(14,165,233,0.18);border-color:#0ea5e9;box-shadow:0 0 20px rgba(14,165,233,0.3); }
+
+        /* SUNSET */
+        body.theme-sunset { --accent:#f97316;--accent2:#ec4899;--glow:rgba(249,115,22,0.35);--nav-bg:rgba(15,10,0,0.9);--card-hover-border:rgba(249,115,22,0.7);--input-bg:rgba(249,115,22,0.08); background:radial-gradient(ellipse at 70% 0%,rgba(236,72,153,0.2) 0%,transparent 50%),linear-gradient(180deg,#0f0a00,#1a0f00,#0f0a00);color:#fff7ed; }
+        body.theme-sunset .glass { background:rgba(25,12,0,0.75);border-color:rgba(249,115,22,0.3); }
+        body.theme-sunset .glass-card { background:rgba(20,10,0,0.65);border-color:rgba(249,115,22,0.15); }
+        body.theme-sunset .glass-card:hover { border-color:rgba(249,115,22,0.55);box-shadow:0 16px 48px rgba(249,115,22,0.2); }
+        body.theme-sunset .option-btn { border-color:rgba(249,115,22,0.18); }
+        body.theme-sunset .option-btn:hover { border-color:rgba(249,115,22,0.55);background:rgba(249,115,22,0.1); }
+        body.theme-sunset .option-btn.selected { background:rgba(249,115,22,0.18);border-color:#f97316;box-shadow:0 0 20px rgba(249,115,22,0.3); }
+
+        /* MIDNIGHT */
+        body.theme-midnight { --accent:#fff;--accent2:#aaa;--glow:rgba(255,255,255,0.06);--nav-bg:rgba(8,8,8,0.98);--card-hover-border:rgba(255,255,255,0.2);--input-bg:rgba(255,255,255,0.04); background:#000;color:#e8e8e8; }
+        body.theme-midnight .glass { background:rgba(12,12,12,0.95);border-color:rgba(255,255,255,0.06); }
+        body.theme-midnight .glass-card { background:rgba(10,10,10,0.95);border-color:rgba(255,255,255,0.05); }
+        body.theme-midnight .glass-card:hover { border-color:rgba(255,255,255,0.18); }
+        body.theme-midnight .option-btn { border-color:rgba(255,255,255,0.08); }
+        body.theme-midnight .option-btn:hover { border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.05); }
+        body.theme-midnight .option-btn.selected { background:rgba(255,255,255,0.1);border-color:#fff; }
+
+        /* CANDY */
+        body.theme-candy { --accent:#ff69b4;--accent2:#bf5fff;--glow:rgba(255,105,180,0.4);--nav-bg:rgba(15,0,25,0.9);--card-hover-border:rgba(255,105,180,0.7);--input-bg:rgba(255,105,180,0.08); background:radial-gradient(ellipse at 30% 20%,rgba(191,95,255,0.2) 0%,transparent 50%),linear-gradient(135deg,#1a0028,#2d0040,#1a0028);color:#fff0fa; }
+        body.theme-candy .glass { background:rgba(35,0,55,0.75);border-color:rgba(255,105,180,0.3);box-shadow:0 0 25px rgba(255,105,180,0.15); }
+        body.theme-candy .glass-card { background:rgba(28,0,42,0.65);border-color:rgba(255,105,180,0.18); }
+        body.theme-candy .glass-card:hover { border-color:rgba(255,105,180,0.6);box-shadow:0 0 30px rgba(255,105,180,0.25); }
+        body.theme-candy .option-btn { border-color:rgba(255,105,180,0.2); }
+        body.theme-candy .option-btn:hover { border-color:rgba(255,105,180,0.55);background:rgba(255,105,180,0.1); }
+        body.theme-candy .option-btn.selected { background:rgba(255,105,180,0.18);border-color:#ff69b4;box-shadow:0 0 20px rgba(255,105,180,0.3); }
         
         body { transition:background 0.4s,color 0.3s; }
 
@@ -216,6 +243,9 @@
             <button class="theme-option" data-theme="synthwave" onclick="setTheme('synthwave')"><span class="theme-swatch" style="background:linear-gradient(135deg,#ff00ff,#00ffff)"></span> 🌆 synthwave</button>
             <button class="theme-option" data-theme="forest" onclick="setTheme('forest')"><span class="theme-swatch" style="background:linear-gradient(135deg,#22c55e,#84cc16)"></span> 🌿 forest</button>
             <button class="theme-option" data-theme="ocean" onclick="setTheme('ocean')"><span class="theme-swatch" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9)"></span> 🌊 ocean</button>
+            <button class="theme-option" data-theme="sunset" onclick="setTheme('sunset')"><span class="theme-swatch" style="background:linear-gradient(135deg,#f97316,#ec4899)"></span> 🌅 sunset</button>
+            <button class="theme-option" data-theme="midnight" onclick="setTheme('midnight')"><span class="theme-swatch" style="background:#111"></span> 🖤 midnight</button>
+            <button class="theme-option" data-theme="candy" onclick="setTheme('candy')"><span class="theme-swatch" style="background:linear-gradient(135deg,#ff69b4,#bf5fff)"></span> 🍬 candy</button>
         </div>
     </div>
 
@@ -314,6 +344,9 @@
                 <button onclick="closeModal(); window.location.href='index.html';" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                     <i class="fas fa-home"></i> Go to Dev Lab
                 </button>
+                <button onclick="closeModal(); window.location.href='dashboard.html';" class="px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                    <i class="fas fa-chart-bar"></i> View My Dashboard
+                </button>
             </div>
         </div>
     </div>
@@ -346,7 +379,7 @@
         // ============================================================
         // THEME SYSTEM
         // ============================================================
-        const THEMES = ['dark','light','synthwave','forest','ocean'];
+        const THEMES = ['dark','light','synthwave','forest','ocean','sunset','midnight','candy'];
         let currentTheme = localStorage.getItem('sk_theme') || 'dark';
 
         function setTheme(name) {
@@ -616,6 +649,27 @@
                     '<div class="text-gray-300 text-sm leading-relaxed">' + formatted + '</div>';
                 document.getElementById('resultsModal').classList.remove('hidden');
                 document.getElementById('aiModal').classList.add('hidden');
+
+                // ✅ SAVE results to localStorage for dashboard!
+                const skillsMap = buildSkillsFromAnswers(userAnswers);
+                const saveData = {
+                    level: detectedLevel,
+                    skills: skillsMap,
+                    roadmap: document.getElementById('studyPlan').textContent,
+                    savedAt: new Date().toISOString(),
+                    focus: userAnswers[1] ? userAnswers[1].split('(')[0].trim() : 'web dev',
+                };
+                localStorage.setItem('skdl_assessment', JSON.stringify(saveData));
+                // also update the dashboard state if it exists
+                try {
+                    const ds = JSON.parse(localStorage.getItem('skdl_dashboard') || '{}');
+                    ds.level = detectedLevel;
+                    ds.skills = skillsMap;
+                    ds.roadmap = saveData.roadmap;
+                    if (!ds.xp) ds.xp = 500; // welcome XP!
+                    if (!ds.xpToday) ds.xpToday = 500;
+                    localStorage.setItem('skdl_dashboard', JSON.stringify(ds));
+                } catch(e) {}
             } catch (err) {
                 document.getElementById('aiModal').classList.add('hidden');
                 document.getElementById('aiModalStatus').textContent = 'error: ' + err.message;
@@ -636,6 +690,28 @@
             a.href = 'data:text/plain,' + encodeURIComponent(plan);
             a.download = 'my-study-plan.txt';
             a.click();
+        }
+
+        // ============================================================
+        // BUILD SKILLS MAP FROM ANSWERS
+        // ============================================================
+        function buildSkillsFromAnswers(answers) {
+            const focus = answers[1] || '';
+            const exp = answers[0] || '';
+            const skills = {};
+            // base skill from experience level
+            const expPct = exp.includes('professional') ? 75 : exp.includes('built') ? 55 : exp.includes('basics') ? 30 : 15;
+            // map focus to skill
+            if (focus.includes('web')) { skills['Web Dev'] = expPct + 10; skills['JavaScript'] = expPct; }
+            else if (focus.includes('ai') || focus.includes('machine')) { skills['AI/ML'] = expPct; skills['Python'] = expPct + 5; skills['Math'] = Math.max(20, expPct - 10); }
+            else if (focus.includes('cyber')) { skills['Cybersecurity'] = expPct + 10; skills['Algorithms'] = Math.max(20, expPct - 5); }
+            else if (focus.includes('data')) { skills['Data Science'] = expPct + 10; skills['Python'] = expPct; skills['Math'] = expPct; }
+            else if (focus.includes('app')) { skills['Web Dev'] = expPct; skills['JavaScript'] = expPct + 5; }
+            else { skills['Web Dev'] = expPct; skills['Python'] = Math.max(15, expPct - 10); }
+            // math/git bonus
+            if (answers[2] && answers[2].includes('daily')) Object.keys(skills).forEach(k => { skills[k] = Math.min(95, skills[k] + 8); });
+            if (answers[3] && answers[3].includes('calculus')) skills['Math'] = Math.min(95, (skills['Math'] || 30) + 20);
+            return skills;
         }
 
         // ============================================================
