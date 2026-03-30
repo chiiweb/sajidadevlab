@@ -19,7 +19,7 @@
 const SKDL_CONFIG = {
   // ↓ replace YOUR-SITE-NAME with your actual netlify site name!
   // example: 'https://sajidadevlab.netlify.app/.netlify/functions/ai-proxy'
-  PROXY_URL: 'https://YOUR-SITE-NAME.netlify.app/.netlify/functions/ai-proxy',
+  PROXY_URL: 'https://sajidadevlab.netlify.app/.netlify/functions/ai-proxy',
 
   MODEL: 'google/gemma-3-12b-it:free',
   MAX_TOKENS: 1500,
