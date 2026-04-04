@@ -30,7 +30,7 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({ error: 'method not allowed' }),
     };
   }
-  const API_KEY = process.env.OPENROUTER_KEY;
+  const API_KEY = process.env.OPENROUTER_API;
   if (!API_KEY) {
     return {
       statusCode: 500,
